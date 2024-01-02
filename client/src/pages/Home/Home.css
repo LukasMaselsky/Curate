@@ -1,0 +1,53 @@
+.home-main {
+    justify-content: flex-start;
+}
+
+.controls {
+    padding: 1rem 3rem;
+}
+
+.controls-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.types {
+    display: flex;
+}
+
+.movies-btn,
+.tv-btn,
+.books-btn {
+    width: 6rem;
+    padding: 0.7rem 0.5rem;
+    background-color: var(--background);
+    border: 1px solid var(--primary);
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.movies-btn,
+.tv-btn {
+    border-right: none;
+}
+
+.movies-btn {
+    border-radius: 10px 0 0 10px;
+}
+
+.books-btn {
+    border-radius: 0 10px 10px 0;
+}
+
+.focused-btn {
+    background-color: var(--primary);
+    color: var(--background);
+}
+
+.filters {
+}
+
+.filters-icon {
+    font-size: 2rem;
+}
