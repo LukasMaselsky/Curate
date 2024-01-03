@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function Home() {
     const [search, setSearch] = useState("");
-    const [mediaType, setMediaType] = useState("movies");
+    const [mediaType, setMediaType] = useState("books");
 
     return (
         <>
@@ -15,7 +15,7 @@ export default function Home() {
             <main className="home-main">
                 {<Controls setMediaType={setMediaType} />}
                 {search == "" ? (
-                    <Featured />
+                    <Featured mediaType={mediaType} />
                 ) : (
                     <SearchResults search={search} />
                 )}

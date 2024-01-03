@@ -1,14 +1,15 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { getFeatured } from "../../api/getMedia";
-import Card from "./Card";
+import { useLocation } from "react-router-dom";
+import { getSingle } from "../../api/getMedia";
+import { useQuery } from "@tanstack/react-query";
 import { MoonLoader } from "react-spinners";
 
-export default function Featured({ mediaType }) {
-    const queryClient = useQueryClient();
+export default function SingleContent() {
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
 
     const { data, isLoading, error } = useQuery({
-        queryFn: async () => getFeatured(mediaType),
-        queryKey: ["featured"],
+        queryFn: async () => getSingle(id),
+        queryKey: ["single", id],
         staleTime: Infinity,
         cacheTime: 0,
     });
@@ -34,13 +35,5 @@ export default function Featured({ mediaType }) {
         return <div>Error</div>;
     }
 
-    return (
-        <div className="featured">
-            <div className="featured-wrapper">
-                {data.map((entry, index) => (
-                    <Card id={entry.id} key={index} coverId={entry.coverId} />
-                ))}
-            </div>
-        </div>
-    );
+    return <div>{data.author}</div>;
 }

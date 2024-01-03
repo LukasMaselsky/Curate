@@ -4,8 +4,8 @@ import { faSliders } from "@fortawesome/free-solid-svg-icons";
 
 export default function Controls({ setMediaType }) {
     useEffect(() => {
-        const moviesBtn = document.getElementsByClassName("movies-btn")[0];
-        moviesBtn.classList.add("focused-btn");
+        const booksBtn = document.getElementsByClassName("books-btn")[0];
+        booksBtn.classList.add("focused-btn");
     }, []);
 
     const handleClick = (name) => {
