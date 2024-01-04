@@ -63,7 +63,7 @@ function RegisterForm() {
 
     return (
         <div className="register-wrapper">
-            <form onSubmit={handleSubmit}>
+            <form className="register-form" onSubmit={handleSubmit}>
                 <h1>Register</h1>
                 {inputs.map((input) => (
                     <FormInput

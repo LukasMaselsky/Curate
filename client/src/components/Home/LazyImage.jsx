@@ -24,7 +24,14 @@ export default function LazyImage({ src, className }) {
     }, []);
 
     return inView ? (
-        <img className={className} src={src}></img>
+        <img
+            className={className}
+            src={src}
+            onError={({ currentTarget }) => {
+                currentTarget.onerror = null; // prevents looping
+                currentTarget.src = "https://via.placeholder.com/200x300";
+            }}
+        ></img>
     ) : (
         <img
             ref={imgRef}

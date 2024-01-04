@@ -31,9 +31,34 @@ export default function SingleContent() {
     }
 
     if (error) {
-        console.log(error);
         return <div>Error</div>;
     }
-
-    return <div>{data.author}</div>;
+    console.log(data);
+    return (
+        <div className="single">
+            <div className="single-wrapper">
+                <div>
+                    <img
+                        className="single-cover"
+                        src={
+                            "https://covers.openlibrary.org/b/id/" +
+                            data.cover +
+                            "-L.jpg?default=false"
+                        }
+                    ></img>
+                </div>
+                <div className="single-content">
+                    <h1>{data.title}</h1>
+                    <h2>{data.author}</h2>
+                    <p>
+                        {typeof data.description === "object"
+                            ? data.description.value
+                            : data.description != undefined
+                            ? data.description
+                            : "Description unavailable"}
+                    </p>
+                </div>
+            </div>
+        </div>
+    );
 }

@@ -52,10 +52,11 @@
     font-size: 2rem;
 }
 
-/* FEAUTURED */
+/* FEAUTURE */
 
 .featured {
     display: flex;
+    flex-direction: column;
     padding: 1rem 3rem;
 }
 

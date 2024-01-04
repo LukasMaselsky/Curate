@@ -1,0 +1,21 @@
+.search-results-main {
+    justify-content: flex-start;
+}
+
+.search-results-wrapper {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    place-items: center;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 3rem;
+}
+
+.search-results > h1 {
+    padding: 1rem 0;
+}

@@ -1,15 +1,15 @@
+import SearchResults from "../../components/Search/SearchResults";
 import Navbar from "../../components/Navbar/Navbar";
-import Featured from "../../components/Home/Featured";
 import Controls from "../../components/Home/Controls";
-import "./Home.css";
+import "./Search.css";
 
-export default function Home({ search, setSearch, mediaType, setMediaType }) {
+export default function Search({ setMediaType, mediaType, search, setSearch }) {
     return (
         <>
             <Navbar search={search} setSearch={setSearch} />
-            <main className="home-main">
+            <main className="search-results-main">
                 <Controls setMediaType={setMediaType} />
-                <Featured mediaType={mediaType} />
+                <SearchResults mediaType={mediaType} />
             </main>
         </>
     );

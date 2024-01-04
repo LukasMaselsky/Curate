@@ -75,7 +75,8 @@
     display: block;
 }
 
-form {
+.register-form,
+.login-form {
     width: 25rem;
     background-color: white;
     padding: 2rem;
@@ -86,12 +87,14 @@ form {
     border: 1px solid black;
 }
 
-form > h1 {
+.register-form > h1,
+.login-form > h1 {
     color: var(--primary);
     text-align: center;
 }
 
-form > button {
+.login-form > button,
+.register-form > button {
     width: 100%;
     padding: 1rem;
     border: none;
@@ -105,13 +108,15 @@ form > button {
     margin-top: 1rem;
 }
 
-form > span {
+.login-form > span,
+.register-form > span {
     color: var(--secondary);
     margin-top: 1rem;
     font-size: 1rem;
 }
 
-form > span > a {
+.login-form > span > a,
+.register-form > span > a {
     color: var(--accent);
 }
 

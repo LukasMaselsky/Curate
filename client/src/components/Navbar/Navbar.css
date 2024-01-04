@@ -20,7 +20,7 @@ nav {
     align-items: center;
 }
 
-.search {
+.search-form {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -30,7 +30,7 @@ nav {
     width: 18rem;
 }
 
-.search > input {
+.search > form > input {
     border: none;
     padding: 1rem;
     border-radius: 10px;
@@ -39,7 +39,7 @@ nav {
     width: 100%;
 }
 
-.search > input:focus {
+.search > form > input:focus {
     outline: none;
 }
 
@@ -78,6 +78,12 @@ nav {
 .register-btn {
     background-color: var(--primary);
     color: var(--background);
+}
+
+.featured-btn {
+    background-color: var(--background);
+    border: none;
+    font-size: 1rem;
 }
 
 button:hover {

@@ -24,6 +24,11 @@ export default function Navbar({ search, setSearch }) {
                         />
                     ) : (
                         <>
+                            <Link to="/">
+                                <button className="featured-btn">
+                                    Featured
+                                </button>
+                            </Link>
                             <Link to="/login">
                                 <button className="login-btn">Login</button>
                             </Link>

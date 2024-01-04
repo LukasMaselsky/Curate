@@ -8,7 +8,9 @@ export default function Card({ coverId, id }) {
             <LazyImage
                 className={"cover"}
                 src={
-                    "https://covers.openlibrary.org/b/id/" + coverId + "-L.jpg"
+                    "https://covers.openlibrary.org/b/id/" +
+                    coverId +
+                    "-L.jpg?default=false"
                 }
             />
         </div>

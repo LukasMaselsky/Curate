@@ -52,7 +52,7 @@ export default function LoginForm() {
 
     return (
         <div className="login-wrapper">
-            <form onSubmit={handleSubmit}>
+            <form className="login-form" onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 {inputs.map((input) => (
                     <FormInput
