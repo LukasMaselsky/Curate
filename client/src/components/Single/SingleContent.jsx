@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { getSingle } from "../../api/getMedia";
 import { useQuery } from "@tanstack/react-query";
 import { MoonLoader } from "react-spinners";
+import LazyImage from "../LazyImage";
 
 export default function SingleContent() {
     const location = useLocation();
@@ -33,23 +34,33 @@ export default function SingleContent() {
     if (error) {
         return <div>Error</div>;
     }
-    console.log(data);
     return (
         <div className="single">
             <div className="single-wrapper">
                 <div>
-                    <img
-                        className="single-cover"
+                    <LazyImage
+                        className={"single-cover"}
                         src={
                             "https://covers.openlibrary.org/b/id/" +
                             data.cover +
                             "-L.jpg?default=false"
                         }
-                    ></img>
+                    />
                 </div>
                 <div className="single-content">
                     <h1>{data.title}</h1>
                     <h2>{data.author}</h2>
+                    <div>
+                        <p>
+                            {data.pages != undefined ? data.pages : "Unknown"}{" "}
+                            pages
+                        </p>
+                        <p>
+                            {data.date != undefined
+                                ? data.date
+                                : "Unknown date"}
+                        </p>
+                    </div>
                     <p>
                         {typeof data.description === "object"
                             ? data.description.value

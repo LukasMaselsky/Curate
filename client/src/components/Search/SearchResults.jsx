@@ -2,16 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import { MoonLoader } from "react-spinners";
 import Card from "../Home/Card";
 import { getSearchResults } from "../../api/getMedia";
-import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-export default function SearchResults({ mediaType }) {
+export default function SearchResults({ mediaType, filters }) {
     const location = useLocation();
     const search = location.pathname.split("/")[2];
 
     const { data, isLoading, error } = useQuery({
-        queryFn: async () => getSearchResults(mediaType, search),
-        queryKey: ["search-results", search],
+        queryFn: async () => getSearchResults(mediaType, search, filters),
+        queryKey: ["search-results", search, filters],
         staleTime: Infinity,
         cacheTime: 0,
     });
@@ -42,7 +41,12 @@ export default function SearchResults({ mediaType }) {
             <h1>Search results for "{search.replaceAll("%20", " ")}"</h1>
             <div className="search-results-wrapper">
                 {data.map((entry, index) => (
-                    <Card id={entry.id} key={index} coverId={entry.coverId} />
+                    <Card
+                        id={entry.id}
+                        key={index}
+                        coverId={entry.coverId}
+                        title={entry.title}
+                    />
                 ))}
             </div>
         </div>

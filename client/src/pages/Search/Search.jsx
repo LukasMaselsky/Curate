@@ -3,13 +3,20 @@ import Navbar from "../../components/Navbar/Navbar";
 import Controls from "../../components/Home/Controls";
 import "./Search.css";
 
-export default function Search({ setMediaType, mediaType, search, setSearch }) {
+export default function Search({
+    setMediaType,
+    mediaType,
+    search,
+    setSearch,
+    filters,
+    setFilters,
+}) {
     return (
         <>
             <Navbar search={search} setSearch={setSearch} />
             <main className="search-results-main">
-                <Controls setMediaType={setMediaType} />
-                <SearchResults mediaType={mediaType} />
+                <Controls setMediaType={setMediaType} setFilters={setFilters} />
+                <SearchResults mediaType={mediaType} filters={filters} />
             </main>
         </>
     );

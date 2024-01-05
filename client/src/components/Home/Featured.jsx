@@ -3,10 +3,10 @@ import { getFeatured } from "../../api/getMedia";
 import Card from "./Card";
 import { MoonLoader } from "react-spinners";
 
-export default function Featured({ mediaType }) {
+export default function Featured({ mediaType, filters }) {
     const { data, isLoading, error } = useQuery({
-        queryFn: async () => getFeatured(mediaType),
-        queryKey: ["featured"],
+        queryFn: async () => getFeatured(mediaType, filters),
+        queryKey: ["featured", filters],
         staleTime: Infinity,
         cacheTime: 0,
     });
@@ -36,7 +36,12 @@ export default function Featured({ mediaType }) {
         <div className="featured">
             <div className="featured-wrapper">
                 {data.map((entry, index) => (
-                    <Card id={entry.id} key={index} coverId={entry.coverId} />
+                    <Card
+                        id={entry.id}
+                        key={index}
+                        coverId={entry.coverId}
+                        title={entry.title}
+                    />
                 ))}
             </div>
         </div>

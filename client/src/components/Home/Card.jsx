@@ -1,7 +1,7 @@
-import LazyImage from "./LazyImage";
+import LazyImage from "../LazyImage";
 import { useNavigate } from "react-router-dom";
 
-export default function Card({ coverId, id }) {
+export default function Card({ coverId, id, title }) {
     const navigate = useNavigate();
     return (
         <div className="card" onClick={() => navigate("/book/" + id)}>
@@ -12,6 +12,7 @@ export default function Card({ coverId, id }) {
                     coverId +
                     "-L.jpg?default=false"
                 }
+                title={title}
             />
         </div>
     );

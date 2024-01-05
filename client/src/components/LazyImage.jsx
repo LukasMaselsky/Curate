@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
+import unavailable from "../assets/image-unavailable.png";
 
-export default function LazyImage({ src, className }) {
+export default function LazyImage({ src, className, title }) {
     const [inView, setInView] = useState(false);
     const imgRef = useRef();
 
@@ -23,13 +24,21 @@ export default function LazyImage({ src, className }) {
         };
     }, []);
 
+    const accent = getComputedStyle(
+        document.querySelector(":root")
+    ).getPropertyValue("--accent");
+    const primary = getComputedStyle(
+        document.querySelector(":root")
+    ).getPropertyValue("--primary");
+
     return inView ? (
         <img
             className={className}
             src={src}
             onError={({ currentTarget }) => {
                 currentTarget.onerror = null; // prevents looping
-                currentTarget.src = "https://via.placeholder.com/200x300";
+                currentTarget.style.backgroundColor = accent;
+                currentTarget.src = unavailable;
             }}
         ></img>
     ) : (
@@ -37,9 +46,7 @@ export default function LazyImage({ src, className }) {
             ref={imgRef}
             className={className}
             style={{
-                backgroundColor: getComputedStyle(
-                    document.querySelector(":root")
-                ).getPropertyValue("--background"),
+                backgroundColor: accent,
             }}
         />
     );

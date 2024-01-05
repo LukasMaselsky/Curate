@@ -1,8 +1,7 @@
-import { useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSliders } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useRef } from "react";
+import Filters from "./Filters";
 
-export default function Controls({ setMediaType }) {
+export default function Controls({ setMediaType, setFilters }) {
     useEffect(() => {
         const booksBtn = document.getElementsByClassName("books-btn")[0];
         booksBtn.classList.add("focused-btn");
@@ -50,12 +49,7 @@ export default function Controls({ setMediaType }) {
                         Books
                     </button>
                 </div>
-                <div className="filters">
-                    <FontAwesomeIcon
-                        icon={faSliders}
-                        className="filters-icon"
-                    />
-                </div>
+                <Filters setFilters={setFilters} />
             </div>
         </div>
     );

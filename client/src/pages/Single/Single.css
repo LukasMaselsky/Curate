@@ -21,9 +21,15 @@
 }
 
 .single-content > h2 {
-    padding-bottom: 2rem;
+    padding-bottom: 0.5rem;
     font-style: italic;
     font-weight: 500;
+}
+
+.single-content > div {
+    display: flex;
+    gap: 2rem;
+    padding-bottom: 2rem;
 }
 
 .single-content > p {

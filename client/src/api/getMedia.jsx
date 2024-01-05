@@ -1,18 +1,13 @@
 import axios from "axios";
 
-export async function getFeatured(mediaType) {
+export async function getFeatured(mediaType, filters) {
     if (mediaType == "books") {
-        const currentYear = new Date().getFullYear();
-        const previousYear = currentYear - 1;
         try {
             const response = await axios.get(
-                "https://openlibrary.org/search.json?q=first_publish_year%3A[" +
-                    previousYear +
-                    "+TO+" +
-                    currentYear +
-                    "]&sort=rating&offset=0&limit=50"
+                `https://openlibrary.org/search.json?q=language%3A${filters.language}+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]&sort=rating&offset=0&limit=50`
             );
             const entries = response.data.docs;
+            console.log(entries);
 
             const data = [];
             entries.forEach(async (entry) => {
@@ -39,25 +34,46 @@ export async function getSingle(id) {
             const response = await axios.get(
                 "https://openlibrary.org/works/" + id + "/editions.json"
             );
-
             const entries = response.data.entries;
+
+            // filter covers
             const filtered = entries.filter(
                 (entry) => entry.covers != undefined
             );
-            const result = filtered.reduce((a, b) =>
-                new Date(a.publish_date).getTime() <
-                new Date(b.publish_date).getTime()
-                    ? a
-                    : b
-            );
+
+            let result;
+            if (filtered.length == 0) {
+                result = entries[0];
+            } else {
+                // get a single edition (based rn on oldest date)
+                result = filtered.reduce(function (a, b) {
+                    if (
+                        a.publish_date == undefined &&
+                        b.publish_date == undefined
+                    ) {
+                        return a;
+                    }
+                    if (a.publish_date == undefined) {
+                        return b;
+                    }
+                    if (b.publish_date == undefined) {
+                        return a;
+                    }
+
+                    return new Date(a.publish_date).getTime() <
+                        new Date(b.publish_date).getTime()
+                        ? a
+                        : b;
+                });
+            }
 
             data = {
-                title: result.title,
                 key: result.key,
                 date: result.publish_date,
                 publisher: result.publishers,
                 pages: result.number_of_pages,
-                cover: result.covers[0],
+                cover:
+                    result.covers == undefined ? undefined : result.covers[0],
             };
 
             let authorId;
@@ -67,6 +83,7 @@ export async function getSingle(id) {
                 );
                 authorId = response.data.authors[0].author.key;
                 data["description"] = response.data.description;
+                data["title"] = response.data.title;
             } catch (err) {
                 return err;
             }
@@ -92,13 +109,11 @@ export async function getSingle(id) {
     }
 }
 
-export async function getSearchResults(mediaType, search) {
+export async function getSearchResults(mediaType, search, filters) {
     if (mediaType == "books") {
         try {
             const response = await axios.get(
-                "https://openlibrary.org/search.json?q=" +
-                    search +
-                    "&offset=0&limit=50"
+                `https://openlibrary.org/search.json?q=${search}+language%3A${filters.language}+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]&offset=0&limit=50`
             );
             const entries = response.data.docs;
 

@@ -12,8 +12,16 @@ import Search from "./pages/Search/Search";
 const queryClient = new QueryClient();
 
 function App() {
+    const currentYear = parseInt(new Date().getFullYear());
     const [search, setSearch] = useState("");
     const [mediaType, setMediaType] = useState("books");
+    const [filters, setFilters] = useState({
+        startDate: currentYear - 1,
+        endDate: currentYear,
+        language: "eng",
+        //sortBy: null,
+        //genres: [],
+    });
 
     const router = createBrowserRouter([
         {
@@ -21,9 +29,11 @@ function App() {
             element: (
                 <Home
                     search={search}
+                    setSearch={setSearch}
                     mediaType={mediaType}
                     setMediaType={setMediaType}
-                    setSearch={setSearch}
+                    filters={filters}
+                    setFilters={setFilters}
                 />
             ),
         },
@@ -41,16 +51,18 @@ function App() {
         },
         {
             path: "/book/:id",
-            element: <Single />,
+            element: <Single search={search} setSearch={setSearch} />,
         },
         {
             path: "/search/:searchTerm",
             element: (
                 <Search
                     search={search}
+                    setSearch={setSearch}
                     mediaType={mediaType}
                     setMediaType={setMediaType}
-                    setSearch={setSearch}
+                    filters={filters}
+                    setFilters={setFilters}
                 />
             ),
         },
