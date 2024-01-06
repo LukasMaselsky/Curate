@@ -40,11 +40,6 @@
     border-radius: 0 10px 10px 0;
 }
 
-.focused-btn {
-    background-color: var(--primary);
-    color: var(--background);
-}
-
 .filters {
 }
 
@@ -95,7 +90,7 @@
 
 .filters-options {
     border: 1px solid var(--primary);
-    border-radius: 10px;
+    border-radius: 10px 0 10px 10px;
     position: absolute;
     background-color: var(--background);
     top: 0;
@@ -128,10 +123,12 @@
     border: none;
     color: white;
     font-size: 1.2rem;
+    border-radius: 5px;
 }
 
 .cancel-filter-btn {
     background-color: var(--secondary);
+    color: var(--text);
 }
 
 .language-selector {
@@ -152,4 +149,44 @@
 
 .year-filter-wrapper > input:focus {
     outline: none;
+}
+
+.any-year-btn {
+    padding: 0.5rem;
+    background-color: var(--background);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+}
+
+.sortby-filter-wrapper {
+    display: flex;
+}
+
+.new-btn,
+.old-btn,
+.rating-btn {
+    width: 33.33%;
+    padding: 0.7rem 0.5rem;
+    background-color: var(--background);
+    border: 1px solid var(--primary);
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.new-btn,
+.old-btn {
+    border-right: none;
+}
+
+.new-btn {
+    border-radius: 10px 0 0 10px;
+}
+
+.rating-btn {
+    border-radius: 0 10px 10px 0;
+}
+
+.focused-btn {
+    background-color: var(--primary);
+    color: var(--background);
 }

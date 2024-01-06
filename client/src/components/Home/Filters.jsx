@@ -1,19 +1,27 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Select from "react-select";
 import LanguageCodes from "../../assets/language-codes.json";
 
-export default function Filters({ setFilters }) {
+export default function Filters({ setFilters, filters }) {
+    useEffect(() => {
+        const btn = document.getElementsByClassName("rating-btn")[0];
+        btn.classList.add("focused-btn");
+    }, []);
+
     const currentYear = parseInt(new Date().getFullYear());
     const min = 0;
     const max = currentYear;
     const defaultLanguage = { label: "English", value: "eng" };
 
     const [isOpen, setIsOpen] = useState(false);
-    const [startDate, setStartDate] = useState(currentYear - 1);
-    const [endDate, setEndDate] = useState(currentYear);
-    const [language, setLanguage] = useState(defaultLanguage.value);
+    const [startDate, setStartDate] = useState(filters.startDate);
+    const [endDate, setEndDate] = useState(filters.endDate);
+    const [language, setLanguage] = useState(filters.language);
+    const [sortBy, setSortBy] = useState(filters.sortBy);
+
+    const [isFocused, setIsFocused] = useState(false);
 
     const handleSubmit = () => {
         setIsOpen(false);
@@ -21,6 +29,7 @@ export default function Filters({ setFilters }) {
             startDate: startDate,
             endDate: endDate,
             language: language,
+            sortBy: sortBy,
         });
     };
 
@@ -46,12 +55,49 @@ export default function Filters({ setFilters }) {
         }
     };
 
+    const openFilters = () => {
+        setIsOpen(true);
+    };
+
+    useEffect(() => {
+        const btn = document.getElementsByClassName("any-year-btn")[0];
+        if (isFocused) {
+            btn.classList.add("focused-btn");
+            setStartDate("");
+            setEndDate("");
+        } else {
+            btn.classList.remove("focused-btn");
+            setStartDate(max - 1);
+            setEndDate(max);
+        }
+    }, [isFocused]);
+
+    const unfocusAnyBtn = () => {
+        if (isFocused) {
+            setIsFocused(false);
+        }
+    };
+
+    const handleSortByClick = (name) => {
+        setSortBy(name);
+        const newBtn = document.getElementsByClassName("new-btn")[0];
+        const oldBtn = document.getElementsByClassName("old-btn")[0];
+        const ratingBtn = document.getElementsByClassName("rating-btn")[0];
+
+        newBtn.classList.remove("focused-btn");
+        oldBtn.classList.remove("focused-btn");
+        ratingBtn.classList.remove("focused-btn");
+
+        const btn = document.getElementsByClassName(name + "-btn")[0];
+        btn.classList.add("focused-btn");
+    };
+
     return (
         <div className="filters">
             <FontAwesomeIcon
                 icon={faSliders}
                 className="filters-icon"
-                onClick={() => setIsOpen(true)}
+                onClick={openFilters}
             />
             <div
                 className="filters-options"
@@ -60,8 +106,8 @@ export default function Filters({ setFilters }) {
                 <div className="filter language-filter">
                     <p>Language</p>
                     <Select
-                        className="language-selector"
                         defaultValue={defaultLanguage}
+                        className="language-selector"
                         onChange={handleLanguageChange}
                         options={LanguageCodes}
                     />
@@ -73,18 +119,49 @@ export default function Filters({ setFilters }) {
                             className="start-date"
                             type="number"
                             value={startDate}
-                            onChange={(e) =>
+                            onBlur={(e) =>
                                 handleStartDateChange(e.target.value)
                             }
+                            onChange={(e) => setStartDate(e.target.value)}
+                            onFocus={() => unfocusAnyBtn()}
                         ></input>
                         <input
                             className="end-date"
                             type="number"
                             value={endDate}
-                            onChange={(e) =>
-                                handleEndDateChange(e.target.value)
-                            }
+                            onBlur={(e) => handleEndDateChange(e.target.value)}
+                            onChange={(e) => setEndDate(e.target.value)}
+                            onFocus={() => unfocusAnyBtn()}
                         ></input>
+                        <button
+                            className="any-year-btn"
+                            onClick={() => setIsFocused((prev) => !prev)}
+                        >
+                            Any
+                        </button>
+                    </div>
+                </div>
+                <div className="filter sortby-filter">
+                    <p>Sort by</p>
+                    <div className="sortby-filter-wrapper">
+                        <button
+                            className="new-btn"
+                            onClick={() => handleSortByClick("new")}
+                        >
+                            New
+                        </button>
+                        <button
+                            className="old-btn"
+                            onClick={() => handleSortByClick("old")}
+                        >
+                            Old
+                        </button>
+                        <button
+                            className="rating-btn"
+                            onClick={() => handleSortByClick("rating")}
+                        >
+                            Rating
+                        </button>
                     </div>
                 </div>
                 <div className="save-filters">

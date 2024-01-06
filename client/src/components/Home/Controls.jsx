@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import Filters from "./Filters";
 
-export default function Controls({ setMediaType, setFilters }) {
+export default function Controls({ setMediaType, setFilters, filters }) {
     useEffect(() => {
         const booksBtn = document.getElementsByClassName("books-btn")[0];
         booksBtn.classList.add("focused-btn");
@@ -17,13 +17,8 @@ export default function Controls({ setMediaType, setFilters }) {
         tvBtn.classList.remove("focused-btn");
         booksBtn.classList.remove("focused-btn");
 
-        if (name == "movies") {
-            moviesBtn.classList.add("focused-btn");
-        } else if (name == "tv") {
-            tvBtn.classList.add("focused-btn");
-        } else {
-            booksBtn.classList.add("focused-btn");
-        }
+        const btn = document.getElementsByClassName(name + "-btn")[0];
+        btn.classList.add("focused-btn")
     };
 
     return (
@@ -49,7 +44,7 @@ export default function Controls({ setMediaType, setFilters }) {
                         Books
                     </button>
                 </div>
-                <Filters setFilters={setFilters} />
+                <Filters setFilters={setFilters} filters={filters}/>
             </div>
         </div>
     );

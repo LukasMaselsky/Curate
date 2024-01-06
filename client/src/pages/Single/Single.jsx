@@ -6,7 +6,9 @@ export default function Single({ search, setSearch }) {
     return (
         <>
             <Navbar search={search} setSearch={setSearch} />
-            <SingleContent />
+            <main>
+                <SingleContent />
+            </main>
         </>
     );
 }

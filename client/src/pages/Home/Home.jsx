@@ -15,7 +15,11 @@ export default function Home({
         <>
             <Navbar search={search} setSearch={setSearch} />
             <main className="home-main">
-                <Controls setMediaType={setMediaType} setFilters={setFilters} />
+                <Controls
+                    setMediaType={setMediaType}
+                    setFilters={setFilters}
+                    filters={filters}
+                />
                 <Featured mediaType={mediaType} filters={filters} />
             </main>
         </>

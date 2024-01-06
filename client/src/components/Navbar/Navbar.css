@@ -89,3 +89,52 @@ nav {
 button:hover {
     cursor: pointer;
 }
+
+.hamburger-icon {
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.hamburger-nav {
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--background);
+    width: 20rem;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    border-right: 1px solid rgb(114, 114, 114);
+    padding: 1rem;
+}
+
+.hamburger-nav-section {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-decoration: none;
+}
+
+.hamburger-nav-section:nth-child(1) {
+    padding: 0 0 0.5rem 0;
+}
+
+.hamburger-nav-button {
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.hamburger-nav-label {
+    text-align: left;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: var(--primary);
+    opacity: 0.7;
+}

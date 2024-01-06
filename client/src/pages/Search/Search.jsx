@@ -15,7 +15,11 @@ export default function Search({
         <>
             <Navbar search={search} setSearch={setSearch} />
             <main className="search-results-main">
-                <Controls setMediaType={setMediaType} setFilters={setFilters} />
+                <Controls
+                    setMediaType={setMediaType}
+                    setFilters={setFilters}
+                    filters={filters}
+                />
                 <SearchResults mediaType={mediaType} filters={filters} />
             </main>
         </>

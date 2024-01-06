@@ -4,10 +4,13 @@ export async function getFeatured(mediaType, filters) {
     if (mediaType == "books") {
         try {
             const response = await axios.get(
-                `https://openlibrary.org/search.json?q=language%3A${filters.language}+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]&sort=rating&offset=0&limit=50`
+                `https://openlibrary.org/search.json?q=language%3A${filters.language}` +
+                    (filters.startDate == ""
+                        ? ""
+                        : `+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]`) +
+                    `&sort=${filters.sortBy}&offset=0&limit=50`
             );
             const entries = response.data.docs;
-            console.log(entries);
 
             const data = [];
             entries.forEach(async (entry) => {
@@ -113,7 +116,11 @@ export async function getSearchResults(mediaType, search, filters) {
     if (mediaType == "books") {
         try {
             const response = await axios.get(
-                `https://openlibrary.org/search.json?q=${search}+language%3A${filters.language}+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]&offset=0&limit=50`
+                `https://openlibrary.org/search.json?q=${search}+language%3A${filters.language}` +
+                    (filters.startDate == ""
+                        ? ""
+                        : `+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]`) +
+                    `&sort=${filters.sortBy}&offset=0&limit=50`
             );
             const entries = response.data.docs;
 

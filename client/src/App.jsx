@@ -19,7 +19,7 @@ function App() {
         startDate: currentYear - 1,
         endDate: currentYear,
         language: "eng",
-        //sortBy: null,
+        sortBy: "rating",
         //genres: [],
     });
 
