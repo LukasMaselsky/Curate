@@ -1,0 +1,41 @@
+.author {
+    padding: 3rem 3rem;
+    display: flex;
+}
+
+.author-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.author-cover {
+    width: 200px;
+    height: 300x;
+}
+
+.author-header {
+    display: flex;
+}
+
+.author-header-info > h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+}
+
+.author-header-info > h2 {
+    padding-bottom: 0.5rem;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.author-header-info > div {
+    display: flex;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.author-content > p {
+    font-weight: 400;
+}

@@ -7,6 +7,7 @@ import {
     faCircleUser,
     faUser,
     faBars,
+    faX,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -122,6 +123,13 @@ function NavHamburger({ currentUser, search, setSearch }) {
                 className="hamburger-nav"
                 style={{ display: navOpen ? "block" : "none" }}
             >
+                <div className="hamburger-nav-section">
+                    <FontAwesomeIcon
+                        className="close-icon"
+                        icon={faX}
+                        onClick={toggle}
+                    />
+                </div>
                 <div className="hamburger-nav-section">
                     <Searchbar search={search} setSearch={setSearch} />
                 </div>

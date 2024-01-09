@@ -17,5 +17,17 @@
 }
 
 .search-results > h1 {
-    padding: 1rem 0;
+    padding: 1rem 0 0.5rem 0;
+}
+
+.search-results > h4 {
+    font-weight: 400;
+    font-style: italic;
+    padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+    .search-results {
+        padding: 1rem 0.5rem;
+    }
 }

@@ -35,3 +35,23 @@ main {
     display: flex;
     flex-direction: column;
 }
+
+.star-rating {
+    padding-top: 2rem;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.star {
+    font-size: 1.9rem;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+.star-hover {
+    font-size: 1.9rem;
+    cursor: pointer;
+    color: #5866b9;
+}

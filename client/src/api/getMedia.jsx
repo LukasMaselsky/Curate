@@ -1,32 +1,30 @@
 import axios from "axios";
 
-export async function getFeatured(mediaType, filters) {
-    if (mediaType == "books") {
-        try {
-            const response = await axios.get(
-                `https://openlibrary.org/search.json?q=language%3A${filters.language}` +
-                    (filters.startDate == ""
-                        ? ""
-                        : `+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]`) +
-                    `&sort=${filters.sortBy}&offset=0&limit=50`
-            );
-            const entries = response.data.docs;
+export async function getFeatured(filters) {
+    try {
+        const response = await axios.get(
+            `https://openlibrary.org/search.json?q=language%3A${filters.language}` +
+                (filters.startDate == ""
+                    ? ""
+                    : `+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]`) +
+                `&sort=${filters.sortBy}&offset=0&limit=50`
+        );
+        const entries = response.data.docs;
 
-            const data = [];
-            entries.forEach(async (entry) => {
-                const id = entry.key.slice(7);
+        const data = [];
+        entries.forEach(async (entry) => {
+            const id = entry.key.slice(7);
 
-                data.push({
-                    id: id,
-                    coverId: entry.cover_i,
-                    title: entry.title,
-                });
+            data.push({
+                id: id,
+                coverId: entry.cover_i,
+                title: entry.title,
             });
+        });
 
-            return data;
-        } catch (err) {
-            return err;
-        }
+        return data;
+    } catch (err) {
+        return err;
     }
 }
 
@@ -90,6 +88,7 @@ export async function getSingle(id) {
                     "https://openlibrary.org/works/" + id + ".json"
                 );
                 authorId = response.data.authors[0].author.key;
+                data["authorId"] = authorId;
                 data["description"] = response.data.description;
                 data["title"] = response.data.title;
             } catch (err) {
@@ -117,32 +116,56 @@ export async function getSingle(id) {
     }
 }
 
-export async function getSearchResults(mediaType, search, filters) {
-    console.log(filters, search);
-    if (mediaType == "books") {
-        try {
-            const response = await axios.get(
-                `https://openlibrary.org/search.json?q=${search}+language%3A${filters.language}` +
-                    (filters.startDate == ""
-                        ? ""
-                        : `+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]`) +
-                    `&sort=${filters.sortBy}&offset=0&limit=50`
-            );
-            const entries = response.data.docs;
+export async function getSearchResults(search, filters) {
+    try {
+        const response = await axios.get(
+            `https://openlibrary.org/search.json?q=language%3A${filters.language}` +
+                (filters.startDate == ""
+                    ? ""
+                    : `+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]`) +
+                `&sort=${filters.sortBy}&offset=0&` +
+                (filters.searchBy == "title" ? "title=" : "author=") +
+                `${search}`
+        );
+        console.log(response);
+        const entries = response.data.docs;
 
-            const data = [];
-            entries.forEach(async (entry) => {
-                const id = entry.key.slice(7);
+        const data = [];
+        entries.forEach(async (entry) => {
+            const id = entry.key.slice(7);
 
-                data.push({
-                    id: id,
-                    coverId: entry.cover_i,
-                    title: entry.title,
-                });
+            data.push({
+                id: id,
+                coverId: entry.cover_i,
+                title: entry.title,
             });
-            return data;
-        } catch (err) {
-            return err;
-        }
+        });
+        return [response.data.numFound, data];
+    } catch (err) {
+        return err;
     }
+}
+
+export async function getAuthor(id) {
+    console.log(id);
+    let data;
+    try {
+        const response = await axios.get(
+            "https://openlibrary.org/authors/" + id + ".json"
+        );
+
+        data = {
+            bio: response.data.bio,
+            photo:
+                response.data.photos == undefined
+                    ? undefined
+                    : response.data.photos[0],
+            name: response.data.name,
+            birthDate: response.data.birth_date,
+            deathDate: response.data.death_date,
+        };
+    } catch (err) {
+        data = undefined;
+    }
+    return data;
 }

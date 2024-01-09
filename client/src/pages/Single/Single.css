@@ -24,7 +24,13 @@
     padding-bottom: 0.5rem;
 }
 
-.single-header-info > h2 {
+.single-header-info > a {
+    text-decoration: none;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.single-header-info > a > h2 {
     padding-bottom: 0.5rem;
     font-style: italic;
     font-weight: 500;

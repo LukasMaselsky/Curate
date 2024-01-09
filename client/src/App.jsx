@@ -4,6 +4,7 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Account from "./pages/Account/Account";
 import Single from "./pages/Single/Single";
+import Author from "./pages/Author/Author";
 import TBR from "./pages/TBR/TBR";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
@@ -15,12 +16,12 @@ const queryClient = new QueryClient();
 function App() {
     const currentYear = parseInt(new Date().getFullYear());
     const [search, setSearch] = useState("");
-    const [mediaType, setMediaType] = useState("books");
     const [filters, setFilters] = useState({
         startDate: currentYear - 1,
         endDate: currentYear,
         language: "eng",
         sortBy: "rating",
+        searchBy: "title"
         //genres: [],
     });
 
@@ -31,8 +32,6 @@ function App() {
                 <Home
                     search={search}
                     setSearch={setSearch}
-                    mediaType={mediaType}
-                    setMediaType={setMediaType}
                     filters={filters}
                     setFilters={setFilters}
                 />
@@ -55,13 +54,15 @@ function App() {
             element: <Single search={search} setSearch={setSearch} />,
         },
         {
+            path: "/author/:id",
+            element: <Author search={search} setSearch={setSearch} />,
+        },
+        {
             path: "/search/:searchTerm",
             element: (
                 <Search
                     search={search}
                     setSearch={setSearch}
-                    mediaType={mediaType}
-                    setMediaType={setMediaType}
                     filters={filters}
                     setFilters={setFilters}
                 />

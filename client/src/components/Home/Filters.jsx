@@ -6,8 +6,12 @@ import LanguageCodes from "../../assets/language-codes.json";
 
 export default function Filters({ setFilters, filters }) {
     useEffect(() => {
-        const btn = document.getElementsByClassName("rating-btn")[0];
+        const btn = document.getElementsByClassName(filters.sortBy + "-btn")[0];
         btn.classList.add("focused-btn");
+        const btn2 = document.getElementsByClassName(
+            filters.searchBy + "-btn"
+        )[0];
+        btn2.classList.add("focused-btn");
     }, []);
 
     const currentYear = parseInt(new Date().getFullYear());
@@ -20,6 +24,7 @@ export default function Filters({ setFilters, filters }) {
     const [endDate, setEndDate] = useState(filters.endDate);
     const [language, setLanguage] = useState(filters.language);
     const [sortBy, setSortBy] = useState(filters.sortBy);
+    const [searchBy, setSearchBy] = useState(filters.searchBy);
 
     const [isFocused, setIsFocused] = useState(
         filters.startDate == "" ? true : false
@@ -32,6 +37,7 @@ export default function Filters({ setFilters, filters }) {
             endDate: endDate,
             language: language,
             sortBy: sortBy,
+            searchBy: searchBy,
         });
     };
 
@@ -89,6 +95,18 @@ export default function Filters({ setFilters, filters }) {
         newBtn.classList.remove("focused-btn");
         oldBtn.classList.remove("focused-btn");
         ratingBtn.classList.remove("focused-btn");
+
+        const btn = document.getElementsByClassName(name + "-btn")[0];
+        btn.classList.add("focused-btn");
+    };
+
+    const handleSearchByClick = (name) => {
+        setSearchBy(name);
+        const titleBtn = document.getElementsByClassName("title-btn")[0];
+        const authorBtn = document.getElementsByClassName("author-btn")[0];
+
+        titleBtn.classList.remove("focused-btn");
+        authorBtn.classList.remove("focused-btn");
 
         const btn = document.getElementsByClassName(name + "-btn")[0];
         btn.classList.add("focused-btn");
@@ -163,6 +181,23 @@ export default function Filters({ setFilters, filters }) {
                             onClick={() => handleSortByClick("rating")}
                         >
                             Rating
+                        </button>
+                    </div>
+                </div>
+                <div className="filter searchby-filter">
+                    <p>Search by</p>
+                    <div className="searchby-filter-wrapper">
+                        <button
+                            className="title-btn"
+                            onClick={() => handleSearchByClick("title")}
+                        >
+                            Title
+                        </button>
+                        <button
+                            className="author-btn"
+                            onClick={() => handleSearchByClick("author")}
+                        >
+                            Author
                         </button>
                     </div>
                 </div>

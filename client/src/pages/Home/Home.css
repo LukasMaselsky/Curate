@@ -12,37 +12,6 @@
     justify-content: space-between;
 }
 
-.types {
-    display: flex;
-}
-
-.movies-btn,
-.tv-btn,
-.books-btn {
-    width: 6rem;
-    padding: 0.7rem 0.5rem;
-    background-color: var(--background);
-    border: 1px solid var(--primary);
-    color: var(--text);
-    font-size: 1rem;
-}
-
-.movies-btn,
-.tv-btn {
-    border-right: none;
-}
-
-.movies-btn {
-    border-radius: 10px 0 0 10px;
-}
-
-.books-btn {
-    border-radius: 0 10px 10px 0;
-}
-
-.filters {
-}
-
 .filters-icon {
     font-size: 2rem;
     cursor: pointer;
@@ -90,11 +59,11 @@
 
 .filters-options {
     border: 1px solid var(--primary);
-    border-radius: 10px 0 10px 10px;
+    border-radius: 0 10px 10px 10px;
     position: absolute;
     background-color: var(--background);
     top: 0;
-    right: 0;
+    left: 0;
     padding: 1rem;
     flex-direction: column;
     z-index: 1;
@@ -143,8 +112,10 @@
 .year-filter-wrapper > input {
     border: none;
     padding: 0.5rem;
+    width: 10rem;
     text-align: center;
     border-radius: 5px;
+    transition: all 1s;
 }
 
 .year-filter-wrapper > input:focus {
@@ -158,13 +129,16 @@
     border-radius: 5px;
 }
 
-.sortby-filter-wrapper {
+.sortby-filter-wrapper,
+.searchby-filter-wrapper {
     display: flex;
 }
 
 .new-btn,
 .old-btn,
-.rating-btn {
+.rating-btn,
+.title-btn,
+.author-btn {
     width: 33.33%;
     padding: 0.7rem 0.5rem;
     background-color: var(--background);
@@ -174,19 +148,45 @@
 }
 
 .new-btn,
-.old-btn {
+.old-btn,
+.title-btn {
     border-right: none;
 }
 
-.new-btn {
+.new-btn,
+.title-btn {
     border-radius: 10px 0 0 10px;
 }
 
-.rating-btn {
+.rating-btn,
+.author-btn {
     border-radius: 0 10px 10px 0;
+}
+
+.title-btn,
+.author-btn {
+    width: 50%;
+}
+
+.featured > h1 {
+    padding-bottom: 1rem;
 }
 
 .focused-btn {
     background-color: var(--primary);
     color: var(--background);
+}
+
+@media screen and (max-width: 500px) {
+    .controls {
+        padding: 1rem 0.5rem;
+    }
+
+    .year-filter-wrapper > input {
+        width: 6.2rem;
+    }
+
+    .featured {
+        padding: 1rem 0.5rem;
+    }
 }

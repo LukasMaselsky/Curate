@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getSingle } from "../../api/getMedia";
 import { useQuery } from "@tanstack/react-query";
 import { MoonLoader } from "react-spinners";
@@ -9,6 +9,7 @@ import { AuthContext } from "../../context/authContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as bookmarkSolid } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark as bookmarkRegular } from "@fortawesome/free-regular-svg-icons";
+import StarRating from "../StarRating";
 
 export default function SingleContent() {
     const location = useLocation();
@@ -20,9 +21,11 @@ export default function SingleContent() {
     useEffect(() => {
         const asyncFn = async () => {
             //! check if logged in first
-            const res = await getTBREntry({ bookId: id });
+            if (currentUser) {
+                const res = await getTBREntry({ bookId: id });
 
-            setIsOnTBR(res.length == 0 ? false : true);
+                setIsOnTBR(res.length == 0 ? false : true);
+            }
         };
         asyncFn();
     }, []);
@@ -81,7 +84,9 @@ export default function SingleContent() {
                     <div className="single-header">
                         <div className="single-header-info">
                             <h1>{data.title}</h1>
-                            <h2>{data.author}</h2>
+                            <Link to={"/author/" + data.authorId.split("/")[2]}>
+                                <h2>{data.author}</h2>
+                            </Link>
                             <div>
                                 <p>
                                     {data.pages != undefined
@@ -108,6 +113,7 @@ export default function SingleContent() {
                                 />
                                 To be read
                             </button>
+                            <StarRating />
                         </div>
                     </div>
                     <p>
