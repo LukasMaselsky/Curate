@@ -48,7 +48,7 @@ function RegisterForm() {
         e.preventDefault();
         try {
             const res = await axios.post(
-                import.meta.env.VITE_SERVER_URL + "/auth/register",
+                import.meta.env.VITE_SERVER_URL + "/server/auth/register",
                 values
             );
             navigate("/login");

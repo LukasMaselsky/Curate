@@ -52,7 +52,8 @@ nav {
 
 .account-icon {
     font-size: 2rem;
-    color: var(--primary);
+    color: var(--text);
+    cursor: pointer;
 }
 
 .account-section {
@@ -80,7 +81,8 @@ nav {
     color: var(--background);
 }
 
-.featured-btn {
+.featured-btn,
+.tbr-btn {
     background-color: var(--background);
     border: none;
     font-size: 1rem;

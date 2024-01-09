@@ -1,16 +1,24 @@
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../context/authContext";
+import { useNavigate } from "react-router-dom";
+import Card from "../Card";
 import { useQuery } from "@tanstack/react-query";
 import { MoonLoader } from "react-spinners";
-import Card from "../Card";
-import { getSearchResults } from "../../api/getMedia";
-import { useLocation } from "react-router-dom";
+import { getTBR } from "../../api/tbr";
 
-export default function SearchResults({ mediaType, filters }) {
-    const location = useLocation();
-    const search = location.pathname.split("/")[2];
+export default function TBRContent() {
+    const { currentUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!currentUser) {
+            navigate("/register");
+        }
+    }, []);
 
     const { data, isLoading, error } = useQuery({
-        queryFn: async () => getSearchResults(mediaType, search, filters),
-        queryKey: ["search-results", search, filters],
+        queryFn: async () => getTBR(),
+        queryKey: ["get-tbr"],
         staleTime: Infinity,
         cacheTime: 0,
     });
@@ -37,20 +45,18 @@ export default function SearchResults({ mediaType, filters }) {
     }
 
     return (
-        <div className="search-results">
-            <h1>Search results for "{search.replaceAll("%20", " ")}"</h1>
-            <div className="search-results-wrapper">
+        <div className="tbr">
+            <h1>To be read</h1>
+            <div className="tbr-wrapper">
                 {data.length == 0 ? (
-                    <div>
-                        No results. Try changing filters for more results.
-                    </div>
+                    <div>No results</div>
                 ) : (
                     data.map((entry, index) => (
                         <Card
-                            id={entry.id}
+                            id={entry.book_id}
                             key={index}
-                            coverId={entry.coverId}
-                            title={entry.title}
+                            coverId={entry.cover_id}
+                            title={null}
                         />
                     ))
                 )}

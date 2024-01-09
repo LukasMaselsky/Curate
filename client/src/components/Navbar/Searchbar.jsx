@@ -9,6 +9,7 @@ export default function Searchbar({ search, setSearch }) {
         if (search.length > 1) {
             navigate("/search/" + search);
         }
+        //!!! HANDLE MESSAGE
     };
 
     return (

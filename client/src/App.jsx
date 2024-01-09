@@ -4,6 +4,7 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Account from "./pages/Account/Account";
 import Single from "./pages/Single/Single";
+import TBR from "./pages/TBR/TBR";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -39,15 +40,15 @@ function App() {
         },
         {
             path: "/register",
-            element: <Register />,
+            element: <Register search={search} setSearch={setSearch} />,
         },
         {
             path: "/login",
-            element: <Login />,
+            element: <Login search={search} setSearch={setSearch} />,
         },
         {
             path: "/account",
-            element: <Account />,
+            element: <Account search={search} setSearch={setSearch} />,
         },
         {
             path: "/book/:id",
@@ -65,6 +66,10 @@ function App() {
                     setFilters={setFilters}
                 />
             ),
+        },
+        {
+            path: "/account/tbr",
+            element: <TBR search={search} setSearch={setSearch} />,
         },
     ]);
 

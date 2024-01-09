@@ -45,6 +45,8 @@ export async function getSingle(id) {
             );
 
             let result;
+
+            // sort by earliest
             if (filtered.length == 0) {
                 result = entries[0];
             } else {
@@ -74,7 +76,10 @@ export async function getSingle(id) {
                 key: result.key,
                 date: result.publish_date,
                 publisher: result.publishers,
-                pages: result.number_of_pages,
+                pages:
+                    result.number_of_pages == undefined
+                        ? result.pagination
+                        : result.number_of_pages,
                 cover:
                     result.covers == undefined ? undefined : result.covers[0],
             };
@@ -113,6 +118,7 @@ export async function getSingle(id) {
 }
 
 export async function getSearchResults(mediaType, search, filters) {
+    console.log(filters, search);
     if (mediaType == "books") {
         try {
             const response = await axios.get(
@@ -134,7 +140,6 @@ export async function getSearchResults(mediaType, search, filters) {
                     title: entry.title,
                 });
             });
-
             return data;
         } catch (err) {
             return err;

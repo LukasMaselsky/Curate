@@ -55,11 +55,24 @@ function NavNormal({ currentUser }) {
         document.body.style.position = "static";
         document.getElementsByTagName("main")[0].style.opacity = "1";
     }, []);
-    
+
     return (
         <div className="account-section">
             {currentUser ? (
-                <FontAwesomeIcon className="account-icon" icon={faCircleUser} />
+                <>
+                    <Link to="/">
+                        <button className="featured-btn">Featured</button>
+                    </Link>
+                    <Link to="/account/tbr">
+                        <button className="tbr-btn">To be read</button>
+                    </Link>
+                    <Link to="/account">
+                        <FontAwesomeIcon
+                            className="account-icon"
+                            icon={faCircleUser}
+                        />
+                    </Link>
+                </>
             ) : (
                 <>
                     <Link to="/">
@@ -130,10 +143,10 @@ function NavHamburger({ currentUser, search, setSearch }) {
                         </div>
                         <div className="hamburger-nav-section">
                             <Link
-                                to="/account/watchlist"
+                                to="/account/tbr"
                                 className="hamburger-nav-button"
                             >
-                                <p>Watchlist</p>
+                                <p>To be read</p>
                             </Link>
                         </div>
                         <div className="hamburger-nav-section">

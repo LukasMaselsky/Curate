@@ -1,0 +1,21 @@
+.tbr-main {
+    justify-content: flex-start;
+}
+
+.tbr-wrapper {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    place-items: center;
+}
+
+.tbr {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 3rem;
+}
+
+.tbr > h1 {
+    padding: 1rem 0;
+}

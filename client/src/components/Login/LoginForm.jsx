@@ -40,7 +40,7 @@ export default function LoginForm() {
         e.preventDefault();
         try {
             await login(values);
-            navigate("/create");
+            navigate("/");
         } catch (err) {
             setError(err.response.data); // error message from server error
         }

@@ -10,15 +10,19 @@ export const AuthContextProvider = ({ children }) => {
 
     const login = async (inputs) => {
         const res = await axios.post(
-            import.meta.env.VITE_SERVER_URL + "/auth/login",
+            import.meta.env.VITE_SERVER_URL + "/server/auth/login",
             inputs,
-            { withCredentials: true }
+            {
+                withCredentials: true,
+            }
         );
         setCurrentUser(res.data);
     };
 
     const logout = async (inputs) => {
-        await axios.post(import.meta.env.VITE_SERVER_URL + "/auth/logout");
+        await axios.post(
+            import.meta.env.VITE_SERVER_URL + "/server/auth/logout"
+        );
         setCurrentUser(null);
     };
 

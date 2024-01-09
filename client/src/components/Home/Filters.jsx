@@ -21,7 +21,9 @@ export default function Filters({ setFilters, filters }) {
     const [language, setLanguage] = useState(filters.language);
     const [sortBy, setSortBy] = useState(filters.sortBy);
 
-    const [isFocused, setIsFocused] = useState(false);
+    const [isFocused, setIsFocused] = useState(
+        filters.startDate == "" ? true : false
+    );
 
     const handleSubmit = () => {
         setIsOpen(false);

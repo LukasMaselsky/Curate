@@ -14,22 +14,49 @@
     height: 450px;
 }
 
-.single-content > h1 {
+.single-header {
+    display: flex;
+}
+
+.single-header-info > h1 {
     font-size: 3rem;
     font-weight: 700;
     padding-bottom: 0.5rem;
 }
 
-.single-content > h2 {
+.single-header-info > h2 {
     padding-bottom: 0.5rem;
     font-style: italic;
     font-weight: 500;
 }
 
-.single-content > div {
+.single-header-info > div {
     display: flex;
     gap: 2rem;
     padding-bottom: 2rem;
+}
+
+.single-header-other {
+    flex-grow: 1;
+    padding: 0.5rem 0 0 0.5rem;
+}
+
+.single-header-other > button {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    border: 1px solid var(--primary);
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: var(--background);
+}
+
+.bookmark-icon {
+    font-size: 1.5rem;
 }
 
 .single-content > p {

@@ -1,4 +1,4 @@
-import LazyImage from "../LazyImage";
+import LazyImage from "./LazyImage";
 import { useNavigate } from "react-router-dom";
 
 export default function Card({ coverId, id, title }) {

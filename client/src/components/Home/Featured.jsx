@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getFeatured } from "../../api/getMedia";
-import Card from "./Card";
+import Card from "../Card";
 import { MoonLoader } from "react-spinners";
 
 export default function Featured({ mediaType, filters }) {
