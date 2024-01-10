@@ -8,6 +8,10 @@ import {
     faUser,
     faBars,
     faX,
+    faStar,
+    faBookmark,
+    faCompass,
+    faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -33,7 +37,7 @@ export default function Navbar({ search, setSearch }) {
                 <h1>TO BE W/R</h1>
             </div>
             <div className="other-section">
-                {windowWidth > 750 ? (
+                {windowWidth > 900 ? (
                     <>
                         <Searchbar search={search} setSearch={setSearch} />
                         <NavNormal currentUser={currentUser} />
@@ -62,7 +66,13 @@ function NavNormal({ currentUser }) {
             {currentUser ? (
                 <>
                     <Link to="/">
+                        <button className="home-btn">Home</button>
+                    </Link>
+                    <Link to="/featured">
                         <button className="featured-btn">Featured</button>
+                    </Link>
+                    <Link to="/account/ratings">
+                        <button className="ratings-btn">Ratings</button>
                     </Link>
                     <Link to="/account/tbr">
                         <button className="tbr-btn">To be read</button>
@@ -135,6 +145,19 @@ function NavHamburger({ currentUser, search, setSearch }) {
                 </div>
                 <div className="hamburger-nav-section">
                     <Link to="/" className="hamburger-nav-button">
+                        <FontAwesomeIcon
+                            icon={faHouse}
+                            style={{ padding: "0 0.5rem 0 2px" }}
+                        />
+                        <p>Home</p>
+                    </Link>
+                </div>
+                <div className="hamburger-nav-section">
+                    <Link to="/featured" className="hamburger-nav-button">
+                        <FontAwesomeIcon
+                            icon={faCompass}
+                            style={{ padding: "0 0.5rem 0 2px" }}
+                        />
                         <p>Featured</p>
                     </Link>
                 </div>
@@ -146,6 +169,10 @@ function NavHamburger({ currentUser, search, setSearch }) {
                                 to="/account"
                                 className="hamburger-nav-button"
                             >
+                                <FontAwesomeIcon
+                                    icon={faCircleUser}
+                                    style={{ padding: "0 0.5rem 0 2px" }}
+                                />
                                 <p>Account</p>
                             </Link>
                         </div>
@@ -154,15 +181,23 @@ function NavHamburger({ currentUser, search, setSearch }) {
                                 to="/account/tbr"
                                 className="hamburger-nav-button"
                             >
+                                <FontAwesomeIcon
+                                    icon={faBookmark}
+                                    style={{ padding: "0 0.6rem 0 4px" }}
+                                />
                                 <p>To be read</p>
                             </Link>
                         </div>
                         <div className="hamburger-nav-section">
                             <Link
-                                to="/account"
+                                to="/account/ratings"
                                 className="hamburger-nav-button"
                             >
-                                <p>Something</p>
+                                <FontAwesomeIcon
+                                    icon={faStar}
+                                    style={{ padding: "0 0.5rem 0 0" }}
+                                />
+                                <p>Ratings</p>
                             </Link>
                         </div>
                     </>

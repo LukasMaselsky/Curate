@@ -1,0 +1,27 @@
+.ratings-main {
+    justify-content: flex-start;
+}
+
+.ratings-wrapper {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    place-items: center;
+}
+
+.ratings {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 3rem;
+}
+
+.ratings > h1 {
+    padding: 1rem 0;
+}
+
+.ratings-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

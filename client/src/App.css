@@ -55,3 +55,8 @@ input[type="radio"] {
     cursor: pointer;
     color: #5866b9;
 }
+
+.star-rating-display {
+    display: flex;
+    justify-content: center;
+}

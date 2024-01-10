@@ -1,6 +1,6 @@
 import SearchResults from "../../components/Search/SearchResults";
 import Navbar from "../../components/Navbar/Navbar";
-import Controls from "../../components/Home/Controls";
+import Controls from "../../components/Controls";
 import "./Search.css";
 
 export default function Search({

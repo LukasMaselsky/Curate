@@ -3,7 +3,7 @@ import { getFeatured } from "../../api/getMedia";
 import Card from "../Card";
 import { MoonLoader } from "react-spinners";
 
-export default function Featured({ filters }) {
+export default function FeaturedContent({ filters }) {
     const { data, isLoading, error } = useQuery({
         queryFn: async () => getFeatured(filters),
         queryKey: ["featured", filters],

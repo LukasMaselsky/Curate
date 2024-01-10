@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Card from "../Card";
 import { useQuery } from "@tanstack/react-query";
 import { MoonLoader } from "react-spinners";
-import { getTBR } from "../../api/tbr";
+import { getRatings } from "../../api/ratings";
+import StarDisplay from "../StarDisplay";
 
-export default function TBRContent() {
+export default function RatingsContent() {
     const { currentUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -17,8 +18,8 @@ export default function TBRContent() {
     }, []);
 
     const { data, isLoading, error } = useQuery({
-        queryFn: async () => getTBR(),
-        queryKey: ["get-tbr"],
+        queryFn: async () => getRatings(),
+        queryKey: ["get-ratings"],
         staleTime: Infinity,
         cacheTime: 0,
     });
@@ -45,19 +46,21 @@ export default function TBRContent() {
     }
 
     return (
-        <div className="tbr">
-            <h1>To be read</h1>
-            <div className="tbr-wrapper">
+        <div className="ratings">
+            <h1>Ratings</h1>
+            <div className="ratings-wrapper">
                 {data.length == 0 ? (
-                    <div>You haven't added any books to your tbr</div>
+                    <div>You haven't rated any books</div>
                 ) : (
                     data.map((entry, index) => (
-                        <Card
-                            id={entry.book_id}
-                            key={index}
-                            coverId={entry.cover_id}
-                            title={null}
-                        />
+                        <div className="ratings-card-container" key={index}>
+                            <Card
+                                id={entry.book_id}
+                                coverId={entry.cover_id}
+                                title={null}
+                            />
+                            <StarDisplay id={entry.book_id} />
+                        </div>
                     ))
                 )}
             </div>

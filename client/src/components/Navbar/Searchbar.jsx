@@ -17,7 +17,7 @@ export default function Searchbar({ search, setSearch }) {
             <form className="search-form" onSubmit={handleSubmit} method="post">
                 <input
                     name="search"
-                    placeholder="Search for a movie, show or book"
+                    placeholder="Search for a book by title"
                     value={search}
                     type="text"
                     onInput={(e) => setSearch(e.target.value)}

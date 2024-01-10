@@ -70,7 +70,7 @@ export default function SingleContent() {
     return (
         <div className="single">
             <div className="single-wrapper">
-                <div>
+                <div className="cover-container">
                     <LazyImage
                         className={"single-cover"}
                         src={
@@ -111,9 +111,9 @@ export default function SingleContent() {
                                             : bookmarkRegular
                                     }
                                 />
-                                To be read
+                                {isOnTBR ? "Added to tbr" : "Add to tbr"}
                             </button>
-                            <StarRating />
+                            <StarRating data={data} />
                         </div>
                     </div>
                     <p>

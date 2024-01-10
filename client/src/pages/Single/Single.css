@@ -68,3 +68,26 @@
 .single-content > p {
     font-weight: 400;
 }
+
+.cover-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+    .single-wrapper,
+    .single-header {
+        flex-direction: column;
+    }
+
+    .single-header-other {
+        padding-bottom: 1rem;
+        padding-left: 0;
+        padding-top: 0;
+    }
+
+    .single {
+        padding: 1rem;
+    }
+}

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import Select from "react-select";
-import LanguageCodes from "../../assets/language-codes.json";
+import LanguageCodes from "../assets/language-codes.json";
 
 export default function Filters({ setFilters, filters }) {
     useEffect(() => {

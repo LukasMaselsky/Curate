@@ -10,7 +10,7 @@ export default function Card({ coverId, id, title }) {
                 src={
                     "https://covers.openlibrary.org/b/id/" +
                     coverId +
-                    "-L.jpg?default=false"
+                    "-M.jpg?default=false"
                 }
                 title={title}
             />

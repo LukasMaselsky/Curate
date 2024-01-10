@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect, useRef } from "react";
+import { useState } from "react";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
@@ -6,6 +6,8 @@ import Account from "./pages/Account/Account";
 import Single from "./pages/Single/Single";
 import Author from "./pages/Author/Author";
 import TBR from "./pages/TBR/TBR";
+import Ratings from "./pages/Ratings/Ratings";
+import Featured from "./pages/Featured/Featured";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -21,15 +23,19 @@ function App() {
         endDate: currentYear,
         language: "eng",
         sortBy: "rating",
-        searchBy: "title"
+        searchBy: "title",
         //genres: [],
     });
 
     const router = createBrowserRouter([
         {
             path: "/",
+            element: <Home search={search} setSearch={setSearch} />,
+        },
+        {
+            path: "/featured",
             element: (
-                <Home
+                <Featured
                     search={search}
                     setSearch={setSearch}
                     filters={filters}
@@ -71,6 +77,10 @@ function App() {
         {
             path: "/account/tbr",
             element: <TBR search={search} setSearch={setSearch} />,
+        },
+        {
+            path: "/account/ratings",
+            element: <Ratings search={search} setSearch={setSearch} />,
         },
     ]);
 

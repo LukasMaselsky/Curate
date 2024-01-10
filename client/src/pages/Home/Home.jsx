@@ -1,26 +1,13 @@
-import Navbar from "../../components/Navbar/Navbar";
-import Featured from "../../components/Home/Featured";
-import Controls from "../../components/Home/Controls";
 import "./Home.css";
+import Navbar from "../../components/Navbar/Navbar";
+import HomeContent from "../../components/Home/HomeContent";
 
-export default function Home({
-    search,
-    setSearch,
-    mediaType,
-    setMediaType,
-    filters,
-    setFilters,
-}) {
+export default function Home({ search, setSearch }) {
     return (
         <>
             <Navbar search={search} setSearch={setSearch} />
             <main className="home-main">
-                <Controls
-                    setMediaType={setMediaType}
-                    setFilters={setFilters}
-                    filters={filters}
-                />
-                <Featured mediaType={mediaType} filters={filters} />
+                <HomeContent />
             </main>
         </>
     );
