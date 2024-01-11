@@ -1,0 +1,134 @@
+.home-main {
+    height: 88vh;
+}
+
+.home {
+    display: flex;
+    height: 100%;
+    padding: 1rem 3rem;
+}
+
+.home-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.home-img {
+    height: 80%;
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 2rem;
+    height: 100%;
+    justify-content: center;
+}
+
+.home-text-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 0 1rem;
+    z-index: 1;
+    color: var(--text);
+    border-bottom: 5px solid var(--primary);
+}
+
+.home-text-row > h1 {
+    font-size: 5rem;
+    font-weight: 800;
+}
+
+.home-text-row > p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0;
+}
+
+.home-text {
+    pointer-events: none;
+}
+.home-text > * {
+    pointer-events: auto;
+}
+.home-text:hover > * {
+    color: var(--text);
+    opacity: 0;
+}
+.home-text:hover > *:hover {
+    color: var(--primary);
+    opacity: 1;
+}
+
+.home-text:hover > *:hover p {
+    opacity: 1;
+    color: var(--text);
+}
+
+nav,
+main,
+.home-text-row,
+.home-text-row > p,
+.home-img,
+.book-open-icon {
+    transition: ease-in-out 0.5s;
+}
+
+.is-dimmed {
+    opacity: 0.3;
+}
+
+.book-open-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 4rem;
+}
+
+.book-open-icon:nth-child(1) {
+    top: 0rem;
+    right: 2rem;
+    color: var(--primary);
+}
+
+.book-open-icon:nth-child(2) {
+    top: 1rem;
+    right: 1rem;
+    color: var(--secondary);
+}
+
+.book-open-icon:nth-child(3) {
+    top: 2rem;
+    right: 0rem;
+    color: var(--accent);
+}
+
+/*
+nav:after,
+main:after,
+.home-text-row:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    transition: all 0.5s;
+}
+
+
+.is-dimmed:after {
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%;
+}
+*/

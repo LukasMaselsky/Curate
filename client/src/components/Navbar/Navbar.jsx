@@ -34,7 +34,7 @@ export default function Navbar({ search, setSearch }) {
     return (
         <nav>
             <div className="logo-section">
-                <h1>TO BE W/R</h1>
+                <h1>CURATE</h1>
             </div>
             <div className="other-section">
                 {windowWidth > 900 ? (
@@ -147,7 +147,7 @@ function NavHamburger({ currentUser, search, setSearch }) {
                     <Link to="/" className="hamburger-nav-button">
                         <FontAwesomeIcon
                             icon={faHouse}
-                            style={{ padding: "0 0.5rem 0 2px" }}
+                            style={{ padding: "0 0.4rem 0 0" }}
                         />
                         <p>Home</p>
                     </Link>
