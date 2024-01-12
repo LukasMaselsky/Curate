@@ -1,7 +1,10 @@
 import books from "../../assets/books-img.svg";
+import bookshelf1 from "../../assets/bookshelf1.svg";
+import bookshelf2 from "../../assets/bookshelf2.svg";
+import bookshelf3 from "../../assets/bookshelf3.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as bookmarkSolid } from "@fortawesome/free-solid-svg-icons";
-import { faBookmark as bookmarkRegular } from "@fortawesome/free-regular-svg-icons";
+import { useState, useEffect } from "react";
 
 export default function HomeContent() {
     const handleDim = (e) => {
@@ -27,48 +30,64 @@ export default function HomeContent() {
         });
     };
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleWindowResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+        window.addEventListener("resize", handleWindowResize);
+        return () => {
+            window.removeEventListener("resize", handleWindowResize);
+        };
+    });
+
     return (
         <div className="home">
             <div className="home-wrapper">
-                <FontAwesomeIcon
-                    className="book-open-icon"
-                    icon={bookmarkSolid}
-                />
-                <FontAwesomeIcon
-                    className="book-open-icon"
-                    icon={bookmarkSolid}
-                />
-                <FontAwesomeIcon
-                    className="book-open-icon"
-                    icon={bookmarkSolid}
-                />
-                <img className="home-img" src={books}></img>
+                <img
+                    className="home-img"
+                    src={books}
+                ></img>
                 <div className="home-text">
                     <div
                         className="home-text-row"
                         onMouseEnter={(e) => handleDim(e)}
                         onMouseLeave={(e) => handleUnDim(e)}
                     >
-                        <h1>Find</h1>
-                        <p>
-                            Search for the books you like with detailed filters
-                        </p>
+                        <div className="row-big">
+                            <h1 className="row-header">Find</h1>
+                        </div>
+                        <div className="row-small">
+                            <img className="bookshelf" src={bookshelf1}></img>
+                            <p>Search for books with detailed filters</p>
+                        </div>
                     </div>
                     <div
                         className="home-text-row"
                         onMouseEnter={(e) => handleDim(e)}
                         onMouseLeave={(e) => handleUnDim(e)}
                     >
-                        <h1>Read</h1>
-                        <p>Read your findings (Obviously)</p>
+                        <div className="row-big">
+                            <h1 className="row-header">Read</h1>
+                        </div>
+                        <div className="row-small">
+                            <img className="bookshelf" src={bookshelf2}></img>
+                            <p>Read your findings (Obviously)</p>
+                        </div>
                     </div>
                     <div
                         className="home-text-row"
                         onMouseEnter={(e) => handleDim(e)}
                         onMouseLeave={(e) => handleUnDim(e)}
                     >
-                        <h1>Curate</h1>
-                        <p>Rate and save books to your profile</p>
+                        <div className="row-big">
+                            <h1 className="row-header">Curate</h1>
+                        </div>
+                        <div className="row-small">
+                            <img className="bookshelf" src={bookshelf3}></img>
+                            <p>Rate and save books</p>
+                        </div>
                     </div>
                 </div>
             </div>

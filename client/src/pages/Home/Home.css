@@ -32,25 +32,27 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    cursor: pointer;
+    height: 33.33%;
+    cursor: default;
     align-items: center;
-    gap: 2rem;
     justify-content: space-between;
     padding: 0 1rem;
     z-index: 1;
     color: var(--text);
     border-bottom: 5px solid var(--primary);
+    /*border-bottom: 5px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(
+        to left,
+        var(--background),
+        var(--primary)
+    );*/
 }
 
-.home-text-row > h1 {
+.row-header {
     font-size: 5rem;
     font-weight: 800;
-}
-
-.home-text-row > p {
-    font-size: 1.2rem;
-    font-weight: 400;
-    opacity: 0;
 }
 
 .home-text {
@@ -73,12 +75,17 @@
     color: var(--text);
 }
 
+.home-text:hover > *:hover .bookshelf {
+    opacity: 0;
+}
+
 nav,
 main,
 .home-text-row,
 .home-text-row > p,
 .home-img,
-.book-open-icon {
+.book-open-icon,
+.bookshelf {
     transition: ease-in-out 0.5s;
 }
 
@@ -86,31 +93,32 @@ main,
     opacity: 0.3;
 }
 
-.book-open-icon {
+.row-big {
+    display: flex;
+    height: 100%;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+}
+
+.row-small {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: flex-end;
+}
+
+.row-small > p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0;
+}
+
+.bookshelf {
+    height: 90%;
     position: absolute;
-    right: 0;
-    top: 0;
-    font-size: 4rem;
 }
-
-.book-open-icon:nth-child(1) {
-    top: 0rem;
-    right: 2rem;
-    color: var(--primary);
-}
-
-.book-open-icon:nth-child(2) {
-    top: 1rem;
-    right: 1rem;
-    color: var(--secondary);
-}
-
-.book-open-icon:nth-child(3) {
-    top: 2rem;
-    right: 0rem;
-    color: var(--accent);
-}
-
 /*
 nav:after,
 main:after,
@@ -132,3 +140,30 @@ main:after,
     height: 100%;
 }
 */
+
+@media screen and (max-width: 800px) {
+    .home-img {
+        display: none;
+    }
+
+    .home {
+        padding: 1rem;
+    }
+
+    .home-text {
+        padding: 0rem;
+    }
+
+    .bookshelf {
+        display: none;
+    }
+
+    .home-text-row {
+        flex-direction: column;
+    }
+
+    .row-small > p {
+        opacity: 1;
+        text-align: center;
+    }
+}

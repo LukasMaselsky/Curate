@@ -89,5 +89,6 @@
 
     .single {
         padding: 1rem;
+        justify-content: center;
     }
 }

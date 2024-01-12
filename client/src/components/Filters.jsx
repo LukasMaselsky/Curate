@@ -116,6 +116,7 @@ export default function Filters({ setFilters, filters }) {
         <div className="filters">
             <FontAwesomeIcon
                 icon={faSliders}
+                style={{ visibility: isOpen ? "hidden" : "visible" }}
                 className="filters-icon"
                 onClick={openFilters}
             />

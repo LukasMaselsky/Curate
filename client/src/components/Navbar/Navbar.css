@@ -12,6 +12,11 @@ nav {
 }
 
 .logo-section {
+    height: 3rem;
+}
+
+.logo {
+    height: 100%;
 }
 
 .other-section {
@@ -24,8 +29,8 @@ nav {
     display: flex;
     align-items: center;
     flex-direction: row;
-    border: 1.5px solid var(--primary);
-    background-color: var(--background);
+    /*border: 1.5px solid var(--primary);*/
+    background-color: rgb(233, 225, 196);
     border-radius: 10px;
     width: 18rem;
 }
@@ -35,7 +40,7 @@ nav {
     padding: 0.8rem 1rem;
     font-size: 1rem;
     border-radius: 10px;
-    background-color: var(--background);
+    background-color: rgb(233, 225, 196);
     color: var(--text);
     width: 100%;
 }
@@ -89,6 +94,13 @@ nav {
     background-color: var(--background);
     border: none;
     font-size: 1rem;
+}
+
+.featured-btn:hover,
+.tbr-btn:hover,
+.ratings-btn:hover,
+.home-btn:hover {
+    opacity: 0.6;
 }
 
 button:hover {
@@ -153,4 +165,10 @@ button:hover {
     display: flex;
     justify-content: flex-end;
     padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+@media screen and (max-width: 500px) {
+    nav {
+        padding: 0.5rem;
+    }
 }

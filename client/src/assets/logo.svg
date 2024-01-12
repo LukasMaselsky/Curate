@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="143.03217mm"
+   height="38.650421mm"
+   viewBox="0 0 143.03217 38.650421"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false">
+    <inkscape:grid
+       id="grid19"
+       units="mm"
+       originx="-161.90476"
+       originy="-379.87452"
+       spacingx="0.99999998"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-42.8373,-100.50847)">
+    <g
+       id="g24">
+      <rect
+         style="fill:#95bce5;fill-opacity:1;stroke:none;stroke-width:3.49999;stroke-dasharray:none;stroke-opacity:1"
+         id="rect24"
+         width="113.74214"
+         height="38.650429"
+         x="72.127335"
+         y="100.50846" />
+      <rect
+         style="fill:#a7cecb;fill-opacity:1;stroke:none;stroke-width:2.75989;stroke-dasharray:none;stroke-opacity:1"
+         id="rect23"
+         width="32.699314"
+         height="38.650429"
+         x="42.837299"
+         y="100.50846"
+         ry="0" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.839px;font-family:Questrial;-inkscape-font-specification:'Questrial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:none;stroke-width:0.202124"
+         x="43.422421"
+         y="135.21266"
+         id="text1"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.839px;font-family:Questrial;-inkscape-font-specification:'Questrial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:none;stroke-width:0.202124"
+           x="43.422421"
+           y="135.21266">Curate</tspan></text>
+    </g>
+  </g>
+</svg>
