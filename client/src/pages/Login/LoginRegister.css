@@ -93,8 +93,9 @@
     text-align: center;
 }
 
-.login-form > button,
-.register-form > button {
+.register-form-btn,
+.login-form-btn,
+.demo-btn {
     width: 100%;
     padding: 1rem;
     border: none;
@@ -108,9 +109,14 @@
     margin-top: 1rem;
 }
 
+.demo-btn {
+    background-color: var(--primary);
+    color: var(--background);
+}
+
 .login-form > span,
 .register-form > span {
-    color: var(--secondary);
+    color: var(--primary);
     margin-top: 1rem;
     font-size: 1rem;
 }
@@ -118,6 +124,10 @@
 .login-form > span > a,
 .register-form > span > a {
     color: var(--accent);
+}
+
+.register-form > p {
+    margin-top: 0.5rem;
 }
 
 /* for mobile (less than 800px screen width) */

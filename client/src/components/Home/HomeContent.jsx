@@ -45,10 +45,7 @@ export default function HomeContent() {
     return (
         <div className="home">
             <div className="home-wrapper">
-                <img
-                    className="home-img"
-                    src={books}
-                ></img>
+                <img className="home-img" src={books}></img>
                 <div className="home-text">
                     <div
                         className="home-text-row"

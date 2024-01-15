@@ -61,6 +61,17 @@
     background-color: var(--background);
 }
 
+.single-header-other > p {
+    color: var(--text);
+    padding: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.single-header-other > p > a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
 .bookmark-icon {
     font-size: 1.5rem;
 }
@@ -85,6 +96,10 @@
         padding-bottom: 1rem;
         padding-left: 0;
         padding-top: 0;
+    }
+
+    .single-header-other > p {
+        padding: 0;
     }
 
     .single {

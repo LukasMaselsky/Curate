@@ -89,7 +89,7 @@ function NavNormal({ currentUser }) {
                 </>
             ) : (
                 <>
-                    <Link to="/">
+                    <Link to="/featured">
                         <button className="featured-btn">Featured</button>
                     </Link>
                     <Link to="/login">

@@ -23,11 +23,12 @@ export default function Searchbar({ search, setSearch }) {
                     onInput={(e) => setSearch(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}
                 />
-                <FontAwesomeIcon
-                    className="search-button"
-                    icon={faMagnifyingGlass}
-                    type="submit"
-                />
+                <button type="submit">
+                    <FontAwesomeIcon
+                        className="search-button"
+                        icon={faMagnifyingGlass}
+                    />
+                </button>
             </form>
         </div>
     );

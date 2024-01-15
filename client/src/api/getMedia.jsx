@@ -1,13 +1,14 @@
 import axios from "axios";
 
-export async function getFeatured(filters) {
+export async function getFeatured({ filters, pageParam }) {
+    let offset = pageParam * 50;
     try {
         const response = await axios.get(
             `https://openlibrary.org/search.json?q=language%3A${filters.language}` +
                 (filters.startDate == ""
                     ? ""
                     : `+first_publish_year%3A[${filters.startDate}+TO+${filters.endDate}]`) +
-                `&sort=${filters.sortBy}&offset=0&limit=50`
+                `&sort=${filters.sortBy}&offset=${offset}&limit=50`
         );
         const entries = response.data.docs;
 
@@ -169,4 +170,3 @@ export async function getAuthor(id) {
     }
     return data;
 }
-

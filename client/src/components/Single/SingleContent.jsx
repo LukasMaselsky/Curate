@@ -102,18 +102,29 @@ export default function SingleContent() {
                             </div>
                         </div>
                         <div className="single-header-other">
-                            <button onClick={handleTBRButton}>
-                                <FontAwesomeIcon
-                                    className="bookmark-icon"
-                                    icon={
-                                        isOnTBR
-                                            ? bookmarkSolid
-                                            : bookmarkRegular
-                                    }
-                                />
-                                {isOnTBR ? "Added to tbr" : "Add to tbr"}
-                            </button>
-                            <StarRating data={data} />
+                            {!currentUser ? (
+                                <p>
+                                    <Link to="/register">Login</Link> to add to
+                                    TBR or rate
+                                </p>
+                            ) : (
+                                <>
+                                    <button onClick={handleTBRButton}>
+                                        <FontAwesomeIcon
+                                            className="bookmark-icon"
+                                            icon={
+                                                isOnTBR
+                                                    ? bookmarkSolid
+                                                    : bookmarkRegular
+                                            }
+                                        />
+                                        {isOnTBR
+                                            ? "Added to tbr"
+                                            : "Add to tbr"}
+                                    </button>
+                                    <StarRating data={data} />
+                                </>
+                            )}
                         </div>
                     </div>
                     <p>

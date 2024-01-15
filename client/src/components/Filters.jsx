@@ -22,6 +22,7 @@ export default function Filters({ setFilters, filters }) {
     const [isOpen, setIsOpen] = useState(false);
     const [startDate, setStartDate] = useState(filters.startDate);
     const [endDate, setEndDate] = useState(filters.endDate);
+    var previousChange = null;
     const [language, setLanguage] = useState(filters.language);
     const [sortBy, setSortBy] = useState(filters.sortBy);
     const [searchBy, setSearchBy] = useState(filters.searchBy);
@@ -46,7 +47,7 @@ export default function Filters({ setFilters, filters }) {
     };
 
     const handleStartDateChange = (year) => {
-        const truncated = Math.max(min, Math.min(max, Number(year)));
+        const truncated = Math.max(min, Math.min(max - 1, Number(year)));
         if (truncated >= endDate) {
             setStartDate(endDate - 1);
         } else {
@@ -112,6 +113,8 @@ export default function Filters({ setFilters, filters }) {
         btn.classList.add("focused-btn");
     };
 
+    // onBlur doesn't register the arrow presses as a change of input focus
+
     return (
         <div className="filters">
             <FontAwesomeIcon
@@ -138,7 +141,7 @@ export default function Filters({ setFilters, filters }) {
                     <div className="year-filter-wrapper">
                         <input
                             className="start-date"
-                            type="number"
+                            type="text"
                             value={startDate}
                             onBlur={(e) =>
                                 handleStartDateChange(e.target.value)
@@ -148,7 +151,7 @@ export default function Filters({ setFilters, filters }) {
                         ></input>
                         <input
                             className="end-date"
-                            type="number"
+                            type="text"
                             value={endDate}
                             onBlur={(e) => handleEndDateChange(e.target.value)}
                             onChange={(e) => setEndDate(e.target.value)}

@@ -50,6 +50,18 @@ export default function LoginForm() {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
 
+    const handleDemo = async () => {
+        try {
+            await login({
+                username: import.meta.env.VITE_DEMO_USERNAME,
+                password: import.meta.env.VITE_DEMO_PASSWORD,
+            });
+            navigate("/");
+        } catch (err) {
+            setError(err.response.data); // error message from server error
+        }
+    };
+
     return (
         <div className="login-wrapper">
             <form className="login-form" onSubmit={handleSubmit}>
@@ -63,7 +75,12 @@ export default function LoginForm() {
                     />
                 ))}
                 {error && <span>{error}</span>}
-                <button>Login</button>
+                <button type="submit" className="login-form-btn">
+                    Login
+                </button>
+                <button type="button" className="demo-btn" onClick={handleDemo}>
+                    Demo
+                </button>
             </form>
         </div>
     );

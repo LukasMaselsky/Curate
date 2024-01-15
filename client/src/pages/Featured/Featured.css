@@ -51,6 +51,21 @@
     height: 70vh;
 }
 
+.load-more-wrapper {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.load-more-btn {
+    padding: 1rem 1.5rem;
+    background: var(--primary);
+    color: var(--background);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+
 /* FILTERS */
 
 .filters {

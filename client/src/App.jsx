@@ -19,8 +19,8 @@ function App() {
     const currentYear = parseInt(new Date().getFullYear());
     const [search, setSearch] = useState("");
     const [filters, setFilters] = useState({
-        startDate: currentYear - 1,
-        endDate: currentYear,
+        startDate: "",
+        endDate: "",
         language: "eng",
         sortBy: "rating",
         searchBy: "title",

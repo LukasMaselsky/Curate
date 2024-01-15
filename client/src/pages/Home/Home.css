@@ -55,9 +55,6 @@
     font-weight: 800;
 }
 
-.home-text {
-    pointer-events: none;
-}
 .home-text > * {
     pointer-events: auto;
 }
@@ -141,7 +138,7 @@ main:after,
 }
 */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
     .home-img {
         display: none;
     }
