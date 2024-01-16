@@ -5,17 +5,23 @@ import bookshelf3 from "../../assets/bookshelf3.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as bookmarkSolid } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
+import PoweredBy from "../PoweredBy";
 
 export default function HomeContent() {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     const handleDim = (e) => {
-        document.getElementsByTagName("nav")[0].classList.add("is-dimmed");
-        document.getElementsByTagName("main")[0].classList.add("is-dimmed");
-        document
-            .getElementsByClassName("home-img")[0]
-            .classList.add("is-dimmed");
-        document.querySelectorAll(".book-open-icon").forEach((icon) => {
-            icon.classList.add("is-dimmed");
-        });
+        if (windowWidth > 850) {
+            // matches media query in home.css
+            document.getElementsByTagName("nav")[0].classList.add("is-dimmed");
+            document.getElementsByTagName("main")[0].classList.add("is-dimmed");
+            document
+                .getElementsByClassName("home-img")[0]
+                .classList.add("is-dimmed");
+            document.querySelectorAll(".book-open-icon").forEach((icon) => {
+                icon.classList.add("is-dimmed");
+            });
+        }
     };
 
     const handleUnDim = (e) => {
@@ -30,8 +36,6 @@ export default function HomeContent() {
         });
     };
 
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
     useEffect(() => {
         const handleWindowResize = () => {
             setWindowWidth(window.innerWidth);
@@ -45,6 +49,7 @@ export default function HomeContent() {
     return (
         <div className="home">
             <div className="home-wrapper">
+                <PoweredBy className={"powered-by-home"}/>
                 <img className="home-img" src={books}></img>
                 <div className="home-text">
                     <div

@@ -16,6 +16,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import PoweredBy from "../PoweredBy";
 
 export default function Navbar({ search, setSearch }) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -203,6 +204,7 @@ function NavHamburger({ currentUser, search, setSearch }) {
                                 <p>Ratings</p>
                             </Link>
                         </div>
+                        <PoweredBy className={"powered-by-nav"} />
                     </>
                 ) : (
                     <>
@@ -219,6 +221,7 @@ function NavHamburger({ currentUser, search, setSearch }) {
                                 <p>Register</p>
                             </Link>
                         </div>
+                        <PoweredBy className={"powered-by-nav"} />
                     </>
                 )}
             </div>

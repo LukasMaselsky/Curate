@@ -19,7 +19,7 @@ export default function TBRContent() {
     const { data, isLoading, error } = useQuery({
         queryFn: async () => getTBR(),
         queryKey: ["get-tbr"],
-        staleTime: Infinity,
+        staleTime: 30000,
         cacheTime: 0,
     });
 

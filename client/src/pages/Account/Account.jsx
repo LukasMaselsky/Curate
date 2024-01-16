@@ -6,7 +6,7 @@ export default function Account({ search, setSearch }) {
     return (
         <>
             <Navbar search={search} setSearch={setSearch} />
-            <main>
+            <main className="account-main">
                 <AccountContent />
             </main>
         </>

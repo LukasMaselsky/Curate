@@ -4,6 +4,7 @@ import cors from "cors";
 import authRoutes from "./routes/auth.js";
 import tbrRoutes from "./routes/tbr.js";
 import ratingsRoutes from "./routes/ratings.js";
+import accountRoutes from "./routes/account.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(express.static("public"));
 app.use("/server/tbr", tbrRoutes);
 app.use("/server/auth", authRoutes);
 app.use("/server/ratings", ratingsRoutes);
+app.use("/server/account", accountRoutes);
 
 app.listen(8801, () => {
     console.log("connected");

@@ -1,5 +1,5 @@
 import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
-import { getFeatured } from "../../api/getMedia";
+import { getFeatured } from "../../api/media";
 import Card from "../Card";
 import { MoonLoader } from "react-spinners";
 import { Fragment } from "react";

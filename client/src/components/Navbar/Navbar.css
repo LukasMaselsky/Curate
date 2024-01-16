@@ -25,6 +25,10 @@ nav {
     align-items: center;
 }
 
+.search {
+    position: relative;
+}
+
 .search-form {
     display: flex;
     align-items: center;
@@ -171,6 +175,32 @@ button:hover {
     display: flex;
     justify-content: flex-end;
     padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+/* POPUP */
+
+.search-popup {
+    left: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(-50%, 5px);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    padding: 0.5rem 1rem;
+    z-index: 1;
+    font-size: 1rem;
+    white-space: nowrap;
+    background: rgb(234, 128, 128);
+    cursor: auto;
+    pointer-events: none;
+    border-radius: 5px;
+    transition: all 0.4s;
+}
+
+.show-popup {
+    visibility: visible !important;
+    opacity: 1;
 }
 
 @media screen and (max-width: 500px) {

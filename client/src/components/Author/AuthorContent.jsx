@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { getAuthor } from "../../api/getMedia";
+import { getAuthor } from "../../api/media";
 import { useQuery } from "@tanstack/react-query";
 import { MoonLoader } from "react-spinners";
 import LazyImage from "../LazyImage";
@@ -38,7 +38,7 @@ export default function AuthorContent() {
         console.log(error);
         return <div>Error</div>;
     }
-    console.log(data);
+
     return (
         <div className="author">
             <div className="author-wrapper">

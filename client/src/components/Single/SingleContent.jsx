@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { getSingle } from "../../api/getMedia";
+import { getSingle } from "../../api/media";
 import { useQuery } from "@tanstack/react-query";
 import { MoonLoader } from "react-spinners";
 import LazyImage from "../LazyImage";

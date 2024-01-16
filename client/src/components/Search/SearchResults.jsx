@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { MoonLoader } from "react-spinners";
 import Card from "../Card";
-import { getSearchResults } from "../../api/getMedia";
+import { getSearchResults } from "../../api/media";
 import { useLocation } from "react-router-dom";
 
 export default function SearchResults({ filters }) {

@@ -1,0 +1,16 @@
+.account-main {
+    height: 88vh;
+}
+
+.account {
+    display: flex;
+    height: 100%;
+    padding: 1rem 3rem;
+}
+
+.account-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}

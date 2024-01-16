@@ -20,7 +20,7 @@ export default function RatingsContent() {
     const { data, isLoading, error } = useQuery({
         queryFn: async () => getRatings(),
         queryKey: ["get-ratings"],
-        staleTime: Infinity,
+        staleTime: 30000,
         cacheTime: 0,
     });
 
