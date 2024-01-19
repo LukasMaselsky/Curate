@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { getSingle } from "../../api/media";
 import { useQuery } from "@tanstack/react-query";
-import { MoonLoader } from "react-spinners";
+import Loading from "../Loading";
+import Error from "../Error";
 import LazyImage from "../LazyImage";
 import { getTBREntry, createTBREntry, deleteTBREntry } from "../../api/tbr";
 import { useContext, useEffect, useState } from "react";
@@ -38,23 +39,11 @@ export default function SingleContent() {
     });
 
     if (isLoading) {
-        return (
-            <div className="loader-wrapper">
-                <MoonLoader
-                    color={getComputedStyle(
-                        document.querySelector(":root")
-                    ).getPropertyValue("--primary")}
-                    loading={isLoading}
-                    size={120}
-                    aria-label="Loading Spinner"
-                    data-testid="loader"
-                />
-            </div>
-        );
+        return <Loading />;
     }
 
     if (error) {
-        return <div>Error</div>;
+        return <Error error={error} />;
     }
 
     const handleTBRButton = async () => {

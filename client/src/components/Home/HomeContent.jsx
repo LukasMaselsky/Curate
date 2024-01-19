@@ -49,7 +49,7 @@ export default function HomeContent() {
     return (
         <div className="home">
             <div className="home-wrapper">
-                <PoweredBy className={"powered-by-home"}/>
+                <PoweredBy className={"powered-by-home"} />
                 <img className="home-img" src={books}></img>
                 <div className="home-text">
                     <div

@@ -1,8 +1,9 @@
 import express from "express";
-import { getAccountPreview } from "../controllers/account.js";
+import { getRatingsPreview, getTBRPreview } from "../controllers/account.js";
 
 const router = express.Router();
 
-router.get("/getAccountPreview", getAccountPreview);
+router.get("/getTBRPreview", getTBRPreview);
+router.get("/getRatingsPreview", getRatingsPreview);
 
 export default router;

@@ -1,8 +1,9 @@
 import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
 import { getFeatured } from "../../api/media";
 import Card from "../Card";
-import { MoonLoader } from "react-spinners";
 import { Fragment } from "react";
+import Error from "../Error";
+import Loading from "../Loading";
 
 export default function FeaturedContent({ filters }) {
     const {
@@ -24,24 +25,21 @@ export default function FeaturedContent({ filters }) {
     });
 
     if (isLoading) {
-        return (
-            <div className="loader-wrapper">
-                <MoonLoader
-                    color={getComputedStyle(
-                        document.querySelector(":root")
-                    ).getPropertyValue("--primary")}
-                    loading={isLoading}
-                    size={120}
-                    aria-label="Loading Spinner"
-                    data-testid="loader"
-                />
-            </div>
-        );
+        return <Loading />;
     }
 
     if (error) {
-        console.log(error);
-        return <div>Error</div>;
+        return <Error error={error} />;
+    }
+
+    if (data.pages[0].name == "AxiosError") {
+        return (
+            <Error
+                error={
+                    "Something went wrong :( Please check your internet connection"
+                }
+            />
+        );
     }
 
     return (
@@ -65,22 +63,12 @@ export default function FeaturedContent({ filters }) {
                     );
                 })}
             </div>
-            {isFetchingNextPage ? (
-                <div className="loader-wrapper">
-                    <MoonLoader
-                        color={getComputedStyle(
-                            document.querySelector(":root")
-                        ).getPropertyValue("--primary")}
-                        loading={isFetchingNextPage}
-                        size={120}
-                        aria-label="Loading Spinner"
-                        data-testid="loader"
-                    />
-                </div>
-            ) : null}
+            {isFetchingNextPage ? <Loading /> : null}
             <div
                 className="load-more-wrapper"
-                style={{ display: isFetchingNextPage ? "none" : "flex" }}
+                style={{
+                    display: isFetchingNextPage ? "none" : "flex",
+                }}
             >
                 <button
                     disabled={!hasNextPage}

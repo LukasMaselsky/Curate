@@ -11,6 +11,107 @@
 .account-wrapper {
     width: 100%;
     display: flex;
-    align-items: center;
     position: relative;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.account-heading {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    border-bottom: 5px solid var(--primary);
+    align-items: center;
+}
+
+.account-heading > h1 {
+    font-size: 2.5rem;
+}
+
+.logout-btn {
+    background-color: var(--primary);
+    color: var(--background);
+    font-size: 1rem;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.account-content {
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+.account-preview {
+    display: flex;
+    flex-grow: 1;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.account-preview-wrapper {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.account-preview-wrapper > h2 {
+    position: absolute;
+    top: 0;
+}
+
+.preview {
+    width: 150px;
+    height: 225px;
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 4px 1px 10px 0px rgb(73, 73, 73);
+}
+
+.preview-undefined {
+    background-color: var(--accent);
+    border: 1px solid var(--primary);
+}
+
+.preview:nth-child(6) {
+    transform: translateX(-4rem);
+    z-index: 5;
+}
+
+.preview:nth-child(5) {
+    transform: translateX(-2rem);
+    z-index: 4;
+}
+
+.preview:nth-child(4) {
+    transform: translateX(0rem);
+    z-index: 3;
+}
+
+.preview:nth-child(3) {
+    transform: translateX(2rem);
+    z-index: 2;
+}
+
+.preview:nth-child(2) {
+    transform: translateX(4rem);
+    z-index: 1;
+}
+
+@media screen and (max-width: 800px) {
+    .account {
+        padding: 1rem 0.5rem;
+    }
+
+    .account-content {
+        flex-direction: column;
+    }
 }

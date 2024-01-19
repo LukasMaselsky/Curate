@@ -3,8 +3,9 @@ import { AuthContext } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 import Card from "../Card";
 import { useQuery } from "@tanstack/react-query";
-import { MoonLoader } from "react-spinners";
 import { getTBR } from "../../api/tbr";
+import Loading from "../Loading";
+import Error from "../Error";
 
 export default function TBRContent() {
     const { currentUser } = useContext(AuthContext);
@@ -24,24 +25,11 @@ export default function TBRContent() {
     });
 
     if (isLoading) {
-        return (
-            <div className="loader-wrapper">
-                <MoonLoader
-                    color={getComputedStyle(
-                        document.querySelector(":root")
-                    ).getPropertyValue("--primary")}
-                    loading={isLoading}
-                    size={120}
-                    aria-label="Loading Spinner"
-                    data-testid="loader"
-                />
-            </div>
-        );
+        return <Loading />;
     }
 
     if (error) {
-        console.log(error);
-        return <div>Error</div>;
+        return <Error error={error} />;
     }
 
     return (

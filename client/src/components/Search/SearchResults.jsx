@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { MoonLoader } from "react-spinners";
 import Card from "../Card";
 import { getSearchResults } from "../../api/media";
 import { useLocation } from "react-router-dom";
+import Error from "../Error";
+import Loading from "../Loading";
 
 export default function SearchResults({ filters }) {
     const location = useLocation();
@@ -16,24 +17,11 @@ export default function SearchResults({ filters }) {
     });
 
     if (isLoading) {
-        return (
-            <div className="loader-wrapper">
-                <MoonLoader
-                    color={getComputedStyle(
-                        document.querySelector(":root")
-                    ).getPropertyValue("--primary")}
-                    loading={isLoading}
-                    size={120}
-                    aria-label="Loading Spinner"
-                    data-testid="loader"
-                />
-            </div>
-        );
+        return <Loading />;
     }
 
     if (error) {
-        console.log(error);
-        return <div>Error</div>;
+        return <Error error={error} />;
     }
 
     const numFound = data[0];

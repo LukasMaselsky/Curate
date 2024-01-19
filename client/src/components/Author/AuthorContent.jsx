@@ -1,10 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { getAuthor } from "../../api/media";
 import { useQuery } from "@tanstack/react-query";
-import { MoonLoader } from "react-spinners";
 import LazyImage from "../LazyImage";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/authContext";
+import Loading from "../Loading";
+import Error from "../Error";
 
 export default function AuthorContent() {
     const location = useLocation();
@@ -19,24 +20,11 @@ export default function AuthorContent() {
     });
 
     if (isLoading) {
-        return (
-            <div className="loader-wrapper">
-                <MoonLoader
-                    color={getComputedStyle(
-                        document.querySelector(":root")
-                    ).getPropertyValue("--primary")}
-                    loading={isLoading}
-                    size={120}
-                    aria-label="Loading Spinner"
-                    data-testid="loader"
-                />
-            </div>
-        );
+        return <Loading />;
     }
 
     if (error) {
-        console.log(error);
-        return <div>Error</div>;
+        return <Error error={error} />;
     }
 
     return (

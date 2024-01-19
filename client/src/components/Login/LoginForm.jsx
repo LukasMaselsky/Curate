@@ -58,7 +58,11 @@ export default function LoginForm() {
             });
             navigate("/");
         } catch (err) {
-            setError(err.response.data); // error message from server error
+            if (!err.response) {
+                setError("Please check your internet connection");
+            } else {
+                setError(err.response.data); // error message from server error
+            }
         }
     };
 
