@@ -91,14 +91,14 @@ function RegisterForm() {
                         onChange={onChange}
                     />
                 ))}
-                <button className="register-form-btn" type="submit">
+                <button aria-label="Register" className="register-form-btn" type="submit">
                     Register
                 </button>
                 {error && <p>{error}</p>}
                 <span>
                     Have an account? <Link to="/login">Login</Link>
                 </span>
-                <button className="demo-btn" type="button" onClick={handleDemo}>
+                <button aria-label="Demo" className="demo-btn" type="button" onClick={handleDemo}>
                     Demo
                 </button>
             </form>

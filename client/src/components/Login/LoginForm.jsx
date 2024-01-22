@@ -79,10 +79,19 @@ export default function LoginForm() {
                     />
                 ))}
                 {error && <span>{error}</span>}
-                <button type="submit" className="login-form-btn">
+                <button
+                    type="submit"
+                    className="login-form-btn"
+                    aria-label="Login button"
+                >
                     Login
                 </button>
-                <button type="button" className="demo-btn" onClick={handleDemo}>
+                <button
+                    type="button"
+                    className="demo-btn"
+                    aria-label="Login demo button"
+                    onClick={handleDemo}
+                >
                     Demo
                 </button>
             </form>

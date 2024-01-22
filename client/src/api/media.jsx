@@ -128,7 +128,7 @@ export async function getSearchResults(search, filters) {
                 (filters.searchBy == "title" ? "title=" : "author=") +
                 `${search}`
         );
-        console.log(response);
+
         const entries = response.data.docs;
 
         const data = [];
@@ -148,7 +148,6 @@ export async function getSearchResults(search, filters) {
 }
 
 export async function getAuthor(id) {
-    console.log(id);
     let data;
     try {
         const response = await axios.get(

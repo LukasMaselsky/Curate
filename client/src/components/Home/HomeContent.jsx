@@ -50,7 +50,7 @@ export default function HomeContent() {
         <div className="home">
             <div className="home-wrapper">
                 <PoweredBy className={"powered-by-home"} />
-                <img className="home-img" src={books}></img>
+                <img alt="three books" className="home-img" src={books}></img>
                 <div className="home-text">
                     <div
                         className="home-text-row"
@@ -61,7 +61,11 @@ export default function HomeContent() {
                             <h1 className="row-header">Find</h1>
                         </div>
                         <div className="row-small">
-                            <img className="bookshelf" src={bookshelf1}></img>
+                            <img
+                                className="bookshelf"
+                                alt="Books icon"
+                                src={bookshelf1}
+                            ></img>
                             <p>Search for books with detailed filters</p>
                         </div>
                     </div>
@@ -74,7 +78,11 @@ export default function HomeContent() {
                             <h1 className="row-header">Read</h1>
                         </div>
                         <div className="row-small">
-                            <img className="bookshelf" src={bookshelf2}></img>
+                            <img
+                                className="bookshelf"
+                                alt="Books icon"
+                                src={bookshelf2}
+                            ></img>
                             <p>Read your findings (Obviously)</p>
                         </div>
                     </div>
@@ -87,7 +95,11 @@ export default function HomeContent() {
                             <h1 className="row-header">Curate</h1>
                         </div>
                         <div className="row-small">
-                            <img className="bookshelf" src={bookshelf3}></img>
+                            <img
+                                className="bookshelf"
+                                alt="Books icon"
+                                src={bookshelf3}
+                            ></img>
                             <p>Rate and save books</p>
                         </div>
                     </div>

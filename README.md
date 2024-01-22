@@ -15,15 +15,6 @@ The place to find information on your next read and keep track of your past read
 -   Express.js 4.18
 -   MySQL 8.1
 
-## Tests
-
-Describe and show how to run the tests with code examples.
-Explain what these tests test and why.
-
-```shell
-Give an example
-```
-
 ## API Reference
 
 Powered by [Open Library API](https://openlibrary.org/dev/docs/api/search)

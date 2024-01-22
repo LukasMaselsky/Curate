@@ -98,7 +98,10 @@ export default function SingleContent() {
                                 </p>
                             ) : (
                                 <>
-                                    <button onClick={handleTBRButton}>
+                                    <button
+                                        aria-label="TBR button"
+                                        onClick={handleTBRButton}
+                                    >
                                         <FontAwesomeIcon
                                             className="bookmark-icon"
                                             icon={

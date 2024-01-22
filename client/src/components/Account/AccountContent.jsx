@@ -20,6 +20,7 @@ export default function AccountContent() {
                     <h1>Account</h1>
                     <button
                         className="logout-btn"
+                        aria-label="Logout button"
                         onClick={() => {
                             logout();
                             navigate("/login");

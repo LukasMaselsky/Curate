@@ -71,6 +71,7 @@ export default function FeaturedContent({ filters }) {
                 }}
             >
                 <button
+                    aria-label="Load more button"
                     disabled={!hasNextPage}
                     onClick={fetchNextPage}
                     className="load-more-btn"

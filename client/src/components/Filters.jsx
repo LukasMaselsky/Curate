@@ -159,6 +159,7 @@ export default function Filters({ setFilters, filters }) {
                         ></input>
                         <button
                             className="any-year-btn"
+                            aria-label="Any year button"
                             onClick={() => setIsFocused((prev) => !prev)}
                         >
                             Any
@@ -170,18 +171,21 @@ export default function Filters({ setFilters, filters }) {
                     <div className="sortby-filter-wrapper">
                         <button
                             className="new-btn"
+                            aria-label="Sort by new button"
                             onClick={() => handleSortByClick("new")}
                         >
                             New
                         </button>
                         <button
                             className="old-btn"
+                            aria-label="Sort by old button"
                             onClick={() => handleSortByClick("old")}
                         >
                             Old
                         </button>
                         <button
                             className="rating-btn"
+                            aria-label="Sort by rating button"
                             onClick={() => handleSortByClick("rating")}
                         >
                             Rating
@@ -193,12 +197,14 @@ export default function Filters({ setFilters, filters }) {
                     <div className="searchby-filter-wrapper">
                         <button
                             className="title-btn"
+                            aria-label="Search by title button"
                             onClick={() => handleSearchByClick("title")}
                         >
                             Title
                         </button>
                         <button
                             className="author-btn"
+                            aria-label="Search by author button"
                             onClick={() => handleSearchByClick("author")}
                         >
                             Author
@@ -208,12 +214,14 @@ export default function Filters({ setFilters, filters }) {
                 <div className="save-filters">
                     <button
                         className="cancel-filter-btn"
+                        aria-label="Cancel filters button"
                         onClick={() => setIsOpen(false)}
                     >
                         Cancel
                     </button>
                     <button
                         onClick={() => handleSubmit()}
+                        aria-label="Save filter button"
                         className="save-filters-btn"
                     >
                         Save

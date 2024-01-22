@@ -29,7 +29,7 @@ export default function Searchbar({ search, setSearch }) {
                     onInput={(e) => setSearch(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}
                 />
-                <button type="submit">
+                <button type="submit" aria-label="Search button">
                     <FontAwesomeIcon
                         className="search-button"
                         icon={faMagnifyingGlass}

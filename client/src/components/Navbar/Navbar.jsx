@@ -37,7 +37,7 @@ export default function Navbar({ search, setSearch }) {
         <nav>
             <div className="logo-section">
                 <Link to="/">
-                    <img className="logo" src={logo}></img>
+                    <img className="logo" alt="Curate logo" src={logo}></img>
                 </Link>
             </div>
             <div className="other-section">
@@ -70,16 +70,16 @@ function NavNormal({ currentUser }) {
             {currentUser ? (
                 <>
                     <Link to="/">
-                        <button className="home-btn">Home</button>
+                        <button aria-label="Home" className="home-btn">Home</button>
                     </Link>
                     <Link to="/featured">
-                        <button className="featured-btn">Featured</button>
+                        <button aria-label="Featured" className="featured-btn">Featured</button>
                     </Link>
                     <Link to="/account/ratings">
-                        <button className="ratings-btn">Ratings</button>
+                        <button aria-label="Ratings" className="ratings-btn">Ratings</button>
                     </Link>
                     <Link to="/account/tbr">
-                        <button className="tbr-btn">To be read</button>
+                        <button aria-label="TBR" className="tbr-btn">To be read</button>
                     </Link>
                     <Link to="/account">
                         <FontAwesomeIcon
@@ -91,13 +91,13 @@ function NavNormal({ currentUser }) {
             ) : (
                 <>
                     <Link to="/featured">
-                        <button className="featured-btn">Featured</button>
+                        <button aria-label="Featured" className="featured-btn">Featured</button>
                     </Link>
                     <Link to="/login">
-                        <button className="login-btn">Login</button>
+                        <button aria-label="Login" className="login-btn">Login</button>
                     </Link>
                     <Link to="/register">
-                        <button className="register-btn">Register</button>
+                        <button aria-label="Register" className="register-btn">Register</button>
                     </Link>
                 </>
             )}
