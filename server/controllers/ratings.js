@@ -9,11 +9,12 @@ export const getRatings = (req, res) => {
     jwt.verify(token, "jwtkey", (err, userInfo) => {
         if (err) return res.status(403).json("Token is not valid!");
 
-        const q = "SELECT * FROM ratings WHERE `user_id` = ?";
+        //const q = "SELECT * FROM ratings WHERE `user_id` = ?";
+        const q = "SELECT * FROM ratings WHERE user_id = ($1)";
 
         db.query(q, [userInfo.id], (err, data) => {
             if (err) return res.status(500).json(err);
-            return res.json(data);
+            return res.json(data.rows);
         });
     });
 };
@@ -26,14 +27,15 @@ export const getRatingEntry = (req, res) => {
     jwt.verify(token, "jwtkey", (err, userInfo) => {
         if (err) return res.status(403).json("Token is not valid!");
 
+        //const q = "SELECT * FROM `ratings` WHERE `user_id` = ? AND `book_id` = ?";
         const q =
-            "SELECT * FROM `ratings` WHERE `user_id` = ? AND `book_id` = ?";
+            "SELECT * FROM ratings WHERE user_id = ($1) AND book_id = ($2)";
 
         const values = [userInfo.id, req.body.bookId];
 
         db.query(q, [...values], (err, data) => {
             if (err) return res.status(500).json(err);
-            return res.json(data);
+            return res.json(data.rows);
         });
     });
 };
@@ -46,8 +48,9 @@ export const createRatingEntry = (req, res) => {
     jwt.verify(token, "jwtkey", (err, userInfo) => {
         if (err) return res.status(403).json("Token is not valid!");
 
+        //const q = "INSERT INTO ratings(`user_id`, `book_id`, `rating`, `cover_id`) VALUES (?)";
         const q =
-            "INSERT INTO ratings(`user_id`, `book_id`, `rating`, `cover_id`) VALUES (?)";
+            "INSERT INTO ratings(user_id, book_id, rating, cover_id) VALUES ($1, $2, $3, $4)";
 
         const values = [
             userInfo.id,
@@ -56,7 +59,7 @@ export const createRatingEntry = (req, res) => {
             req.body.coverId,
         ];
 
-        db.query(q, [values], (err, data) => {
+        db.query(q, [...values], (err, data) => {
             if (err) return res.status(500).json(err);
             return res.json("Added to tbr");
         });
@@ -70,8 +73,9 @@ export const updateRatingEntry = (req, res) => {
     jwt.verify(token, "jwtkey", (err, userInfo) => {
         if (err) return res.status(403).json("Token is not valid!");
 
+        //const q = "UPDATE ratings SET `rating` = ? WHERE `user_id` = ? AND `book_id` = ?";
         const q =
-            "UPDATE ratings SET `rating` = ? WHERE `user_id` = ? AND `book_id` = ?";
+            "UPDATE ratings SET rating = ($1) WHERE user_id = ($2) AND book_id = ($3)";
 
         db.query(
             q,

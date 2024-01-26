@@ -21,7 +21,6 @@ export default function SingleContent() {
 
     useEffect(() => {
         const asyncFn = async () => {
-            //! check if logged in first
             if (currentUser) {
                 const res = await getTBREntry({ bookId: id });
 

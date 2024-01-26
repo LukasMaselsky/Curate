@@ -70,16 +70,24 @@ function NavNormal({ currentUser }) {
             {currentUser ? (
                 <>
                     <Link to="/">
-                        <button aria-label="Home" className="home-btn">Home</button>
+                        <button aria-label="Home" className="home-btn">
+                            Home
+                        </button>
                     </Link>
                     <Link to="/featured">
-                        <button aria-label="Featured" className="featured-btn">Featured</button>
+                        <button aria-label="Featured" className="featured-btn">
+                            Featured
+                        </button>
                     </Link>
                     <Link to="/account/ratings">
-                        <button aria-label="Ratings" className="ratings-btn">Ratings</button>
+                        <button aria-label="Ratings" className="ratings-btn">
+                            Ratings
+                        </button>
                     </Link>
                     <Link to="/account/tbr">
-                        <button aria-label="TBR" className="tbr-btn">To be read</button>
+                        <button aria-label="TBR" className="tbr-btn">
+                            To be read
+                        </button>
                     </Link>
                     <Link to="/account">
                         <FontAwesomeIcon
@@ -91,13 +99,19 @@ function NavNormal({ currentUser }) {
             ) : (
                 <>
                     <Link to="/featured">
-                        <button aria-label="Featured" className="featured-btn">Featured</button>
+                        <button aria-label="Featured" className="featured-btn">
+                            Featured
+                        </button>
                     </Link>
                     <Link to="/login">
-                        <button aria-label="Login" className="login-btn">Login</button>
+                        <button aria-label="Login" className="login-btn">
+                            Login
+                        </button>
                     </Link>
                     <Link to="/register">
-                        <button aria-label="Register" className="register-btn">Register</button>
+                        <button aria-label="Register" className="register-btn">
+                            Register
+                        </button>
                     </Link>
                 </>
             )}
@@ -215,7 +229,7 @@ function NavHamburger({ currentUser, search, setSearch }) {
                         </div>
                         <div className="hamburger-nav-section">
                             <Link
-                                to="register"
+                                to="/register"
                                 className="hamburger-nav-button"
                             >
                                 <p>Register</p>
