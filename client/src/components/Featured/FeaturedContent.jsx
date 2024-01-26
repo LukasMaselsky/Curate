@@ -1,4 +1,4 @@
-import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { getFeatured } from "../../api/media";
 import Card from "../Card";
 import { Fragment } from "react";

@@ -15,3 +15,4 @@ await db.connect();
 //! IMPORTANT:
 //! CocroachDB returns data.rows instead of just data
 //! needed for register and login, as well as return data at the end of each controller
+//!
