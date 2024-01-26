@@ -15,7 +15,7 @@ import Search from "./pages/Search/Search";
 
 const queryClient = new QueryClient();
 
-function App() {
+export default function App() {
     const currentYear = parseInt(new Date().getFullYear());
     const [search, setSearch] = useState("");
     const [filters, setFilters] = useState({
@@ -90,5 +90,3 @@ function App() {
         </QueryClientProvider>
     );
 }
-
-export default App;
