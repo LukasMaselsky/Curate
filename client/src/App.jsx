@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
@@ -16,6 +16,19 @@ import Search from "./pages/Search/Search";
 const queryClient = new QueryClient();
 
 export default function App() {
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll(".hidden");
+        hiddenElements.forEach((el) => observer.observe(el));
+    }, []);
+
     const currentYear = parseInt(new Date().getFullYear());
     const [search, setSearch] = useState("");
     const [filters, setFilters] = useState({
