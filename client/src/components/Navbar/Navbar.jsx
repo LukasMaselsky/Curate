@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/logo.png";
 import Searchbar from "./Searchbar";
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
