@@ -1,4 +1,4 @@
-<img src="./client/src/assets/logo.svg" alt="Logo of the project" align="right" style="height:35px">
+<img src="./client/src/assets/logo.png" alt="Logo of the project" align="right" style="height:35px">
 
 # Curate
 

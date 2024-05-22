@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import logo from "../../assets/logo.png";
+import logoImage from "../../assets/logo.png";
 import Searchbar from "./Searchbar";
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
@@ -37,7 +37,11 @@ export default function Navbar({ search, setSearch }) {
         <nav>
             <div className="logo-section">
                 <Link to="/">
-                    <img className="logo" alt="Curate logo" src={logo}></img>
+                    <img
+                        className="logo"
+                        alt="Curate logo"
+                        src={logoImage}
+                    ></img>
                 </Link>
             </div>
             <div className="other-section">
